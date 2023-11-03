@@ -1,0 +1,12 @@
+{
+	"root": true,
+	"extends": ["neon/common", "neon/node", "neon/typescript", "neon/prettier"],
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"rules": {
+		"@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+		"require-atomic-updates": "off",
+		"unicorn/no-unsafe-regex": "off"
+	}
+}

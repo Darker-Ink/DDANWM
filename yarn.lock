@@ -600,6 +600,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/pako@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@types/pako@npm:2.0.2"
+  checksum: 0827b0c0ae1f38bdcbe8563077660942194821c95987989d0be1d2b9c180e19c94d5bb85a887a81b0d08dd81d084feb46a8d327086995442ce9b0041c249a094
+  languageName: node
+  linkType: hard
+
 "@types/semver@npm:^7.3.12, @types/semver@npm:^7.5.0":
   version: 7.5.4
   resolution: "@types/semver@npm:7.5.4"
@@ -1546,12 +1553,14 @@ __metadata:
   dependencies:
     "@types/cors": ^2.8.15
     "@types/node": ^20.8.10
+    "@types/pako": ^2.0.2
     cors: ^2.8.5
     discord-api-types: ^0.37.62
     eslint: ^8.52.0
     eslint-config-neon: ^0.1.57
     eslint-formatter-pretty: ^6.0.0
     express: ^4.18.2
+    pako: ^2.1.0
     prettier: ^3.0.3
     typescript: ^5.2.2
     ws: ^8.14.2
@@ -4774,6 +4783,13 @@ __metadata:
   version: 2.2.0
   resolution: "p-try@npm:2.2.0"
   checksum: f8a8e9a7693659383f06aec604ad5ead237c7a261c18048a6e1b5b85a5f8a067e469aa24f5bc009b991ea3b058a87f5065ef4176793a200d4917349881216cae
+  languageName: node
+  linkType: hard
+
+"pako@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "pako@npm:2.1.0"
+  checksum: 71666548644c9a4d056bcaba849ca6fd7242c6cf1af0646d3346f3079a1c7f4a66ffec6f7369ee0dc88f61926c10d6ab05da3e1fca44b83551839e89edd75a3e
   languageName: node
   linkType: hard
 
