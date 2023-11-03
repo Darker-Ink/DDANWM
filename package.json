@@ -1,0 +1,5 @@
+{
+  "name": "ddanwm",
+  "description": "A Discord API & Websocket mocker",
+  "packageManager": "yarn@3.6.0"
+}
