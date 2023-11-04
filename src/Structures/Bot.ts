@@ -19,25 +19,25 @@ class Bot {
 
     protected readonly ddanwm: DDANWM;
 
-    public constructor(ddanwm: DDANWM, options: BotCreateOptions) {
+    public constructor(ddanwm: DDANWM, options?: BotCreateOptions) {
 
         const defaultBot = generateBot();
 
         this.ddanwm = ddanwm;
 
-        this.avatar = options.avatar ?? defaultBot.avatar;
+        this.avatar = options?.avatar ?? defaultBot.avatar;
 
-        this.avatarDecoration = options.avatar_decoration ?? defaultBot.avatar_decoration;
+        this.avatarDecoration = options?.avatar_decoration ?? defaultBot.avatar_decoration;
 
-        this.discriminator = options.discriminator ?? defaultBot.discriminator;
+        this.discriminator = options?.discriminator ?? defaultBot.discriminator;
 
-        this.flags = options.flags ?? defaultBot.flags;
+        this.flags = options?.flags ?? defaultBot.flags;
 
-        this.globalName = options.global_name ?? defaultBot.global_name;
+        this.globalName = options?.global_name ?? defaultBot.global_name;
 
-        this.id = options.id ?? defaultBot.id;
+        this.id = options?.id ?? defaultBot.id;
 
-        this.username = options.username ?? defaultBot.username;
+        this.username = options?.username ?? defaultBot.username;
     }
 }
 

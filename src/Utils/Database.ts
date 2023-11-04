@@ -35,7 +35,7 @@ class Database {
 
         const data = this.options.saveType === 'binary' ? this.binarify() : JSON.stringify(Object.entries(this.database));
 
-        const path = join(process.cwd(), this.options.path ?? './', `database.${this.options.saveType === 'binary' ? 'bin' : 'json'}`);
+        const path = join(process.cwd(), this.options.path ?? './', `database.${this.options.saveType === 'binary' ? 'dmc' : 'json'}`);
 
         await writeFile(path, data);
 
@@ -45,7 +45,7 @@ class Database {
     public async load() {
         if (!this.options.persistent) throw new Error('Cannot load a non-persistent database');
 
-        const path = join(process.cwd(), this.options.path ?? './', `database.${this.options.saveType === 'binary' ? 'bin' : 'json'}`);
+        const path = join(process.cwd(), this.options.path ?? './', `database.${this.options.saveType === 'binary' ? 'dmc' : 'json'}`);
 
         const data = await readFile(path);
 
