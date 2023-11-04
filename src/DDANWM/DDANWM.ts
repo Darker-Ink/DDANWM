@@ -1,4 +1,4 @@
-import type { DDANWMOptions } from "../Types/Misc/DDANWM";
+import type { DDANWMOptions } from "../Types/Misc/DDANWM.type";
 import Database from "../Utils/Database";
 
 class DDANWM {
