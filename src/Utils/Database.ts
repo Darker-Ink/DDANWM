@@ -3,7 +3,7 @@ import { writeFile, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import process from "node:process";
 import { deflate, inflate } from 'pako';
-import type { Column, DatabaseOptions } from "../Types/Misc/Database";
+import type { Column, DatabaseOptions } from "../Types/Misc/Database.type";
 
 class Database {
     private options: DatabaseOptions;
