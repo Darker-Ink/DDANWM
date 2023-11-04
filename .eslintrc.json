@@ -7,6 +7,8 @@
 	"rules": {
 		"@typescript-eslint/consistent-type-definitions": ["error", "interface"],
 		"require-atomic-updates": "off",
-		"unicorn/no-unsafe-regex": "off"
+		"unicorn/no-unsafe-regex": "off",
+		"unicorn/prefer-export-from": "off",
+		"tsdoc/syntax": "off"
 	}
 }
