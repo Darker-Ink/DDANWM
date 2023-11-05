@@ -1,6 +1,7 @@
 import type DDANWM from "../DDANWM/DDANWM";
 import type { BotCreateOptions } from "../Types/Misc/Structures/Bot.type";
 import { generateBot } from "../Utils/Factories/Bot.factory.js";
+import { generateToken } from "../Utils/Token.js";
 
 class Bot {
     public avatar: string | null;
@@ -16,6 +17,8 @@ class Bot {
     public id: string;
 
     public username: string;
+
+    protected token: string;
 
     protected readonly ddanwm: DDANWM;
 
@@ -38,6 +41,10 @@ class Bot {
         this.id = options?.id ?? defaultBot.id;
 
         this.username = options?.username ?? defaultBot.username;
+
+        this.token = generateToken(this.id);
+
+        // this.ddanwm.bots.set(this.id, this);
     }
 }
 

@@ -18,6 +18,10 @@ class Bots {
     public async create(options?: Partial<CreateBotOptions>) {
 
     }
+
+    public async delete(id: string) {
+
+    }
 }
 
 export default Bots;

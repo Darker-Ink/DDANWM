@@ -30,10 +30,14 @@ export interface DatabaseOptions {
     saveType?: 'binary' | 'json';
 }
 
-export interface Column {
+export interface Column<T extends string = string> {
     default?: any;
-    name: string;
-    primary: boolean;
+    name: T;
+    primary?: boolean;
     required?: boolean;
-    type: "bigint" | "boolean" | "number" | "string";
+    type: "bigint" | "boolean" | "number" | "string" | "string[]";
 }
+
+export type ColumnsMap<T extends readonly { columns: string[], name: string }[]> = {
+    [K in T[number]['name']]: Extract<T[number], { name: K }>['columns'][number];
+};

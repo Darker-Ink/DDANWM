@@ -12,13 +12,13 @@ export interface DDANWMOptions {
         port: number;
     };
     /**
-     * The default API version to use when no version is specified, Discord's default is v6, though we do not plan on supporting that version (unless someone plans to make a PR for it)
+     * @description The default API version to use when no version is specified, Discord's default is v6, though we do not plan on supporting that version (unless someone plans to make a PR for it)
      */
     defaultApiVersion: 'v9' | 'v10';
     ws: {
         host: string;
         /**
-         * The maximum amount of connections allowed at a time, when this is reached the server will stop accepting new connections until a connection is closed
+         * @description The maximum amount of connections allowed at a time, when this is reached the server will stop accepting new connections until a connection is closed
          */
         maxConnections: number;
         port: number;

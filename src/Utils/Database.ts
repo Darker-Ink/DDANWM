@@ -3,9 +3,10 @@ import { writeFile, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import process from "node:process";
 import { deflate, inflate } from 'pako';
-import type { Column, DatabaseOptions } from "../Types/Misc/Database.type";
+import type { Column, ColumnsMap, DatabaseOptions } from "../Types/Misc/Database.type";
 
-class Database {
+
+class Database<T extends readonly { columns: string[], name: string }[]> {
     private options: DatabaseOptions;
 
     /**
@@ -121,13 +122,7 @@ class Database {
         return name.replaceAll(/([A-Z])/g, " $1").split(" ").join("_").toLowerCase();
     }
 
-    public createTable(name: string, columns: {
-        default?: any;
-        name: string;
-        primary: boolean;
-        required?: boolean;
-        type: "bigint" | "boolean" | "number" | "string";
-    }[]) {
+    public createTable<Z extends T[number]['name'] = "">(name: Z, columns: readonly Column<ColumnsMap<T>[Z]>[]) {
         if (["__proto__", "constructor", "prototype"].includes(name)) return false; // This protects against prototype pollution
 
         const fixedColumns = columns.map(column => {
@@ -148,7 +143,7 @@ class Database {
         return true;
     }
 
-    public deleteTable(name: string) {
+    public deleteTable<Z extends T[number]['name'] = "">(name: Z) {
         if (["__proto__", "constructor", "prototype"].includes(name)) return false; // This protects against prototype pollution
 
         // eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- this is safe
@@ -157,16 +152,16 @@ class Database {
         return true;
     }
 
-    public getTable(name: string) {
+    public getTable<Z extends T[number]['name'] = "">(name: Z) {
         if (["__proto__", "constructor", "prototype"].includes(name)) return false; // This protects against prototype pollution
 
         return this.database[this.nameFix(name)];
     }
 
-    public create<T extends Record<string, any>>(name: string, data: any[]): T | null | undefined {
-        if (["__proto__", "constructor", "prototype"].includes(name)) return null; // This protects against prototype pollution
+    public create<Z extends T[number]['name'] = "", D extends Record<string, any> = {}>(tableName: Z, data: any[]): D | null {
+        if (["__proto__", "constructor", "prototype"].includes(tableName)) return null; // This protects against prototype pollution
 
-        const table = this.database[this.nameFix(name)];
+        const table = this.database[this.nameFix(tableName)];
 
         if (!table) return null;
 
@@ -203,6 +198,16 @@ class Database {
                 continue;
             }
 
+            if (column.type === 'string[]') {
+                if (!Array.isArray(item)) throw new Error(`Invalid type for column ${column.name}`);
+
+                for (const item2 of item) {
+                    if (typeof item2 !== 'string') throw new Error(`Invalid type for column ${column.name}`);
+                }
+
+                continue;
+            }
+
             // eslint-disable-next-line valid-typeof -- these are fine, but we jsut don't use all types
             if (typeof item !== column.type) throw new Error(`Invalid type for column ${column.name}`);
         }
@@ -215,10 +220,10 @@ class Database {
             dataToReturn[column.name] = data[table.columns.findIndex(column2 => column2.name === column.name)];
         }
 
-        return dataToReturn as T;
+        return dataToReturn as D;
     }
 
-    public delete(name: string, primaryKey: string) {
+    public delete<Z extends T[number]['name'] = "">(name: Z, primaryKey: string) {
         if (["__proto__", "constructor", "prototype"].includes(name)) return false; // This protects against prototype pollution
 
         const table = this.database[this.nameFix(name)];
@@ -228,7 +233,7 @@ class Database {
         return table.rows.delete(primaryKey);
     }
 
-    public get<T extends Record<string, any>>(name: string, primaryKey: any): T | null | undefined {
+    public get<Z extends T[number]['name'] = "", D extends Record<string, any> = {}>(name: Z, primaryKey: any): D | null | undefined {
         if (["__proto__", "constructor", "prototype"].includes(name)) return null; // This protects against prototype pollution
 
         const table = this.database[this.nameFix(name)];
@@ -245,7 +250,7 @@ class Database {
             dataToReturn[column.name] = data[table.columns.findIndex(column2 => column2.name === column.name)];
         }
 
-        return dataToReturn as T;
+        return dataToReturn as D;
     }
 }
 
