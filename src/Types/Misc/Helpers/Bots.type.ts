@@ -53,8 +53,12 @@ export interface CreateBotOptions {
      */
     discriminator: string | null;
     flags: Partial<BotFlags>;
-    general: Partial<GeneralBotOptions>;
-    oauth2: Partial<OAuth2Options>;
+    general?: Partial<GeneralBotOptions>;
+    oauth2?: Partial<OAuth2Options>;
     owner: never;
+    /**
+     * @descript The token to use for the bot, if this is null we'll generate a random token
+     */
+    token?: string;
     username: string;
 }

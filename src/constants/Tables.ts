@@ -29,11 +29,39 @@ export const Tables = [
             },
             {
                 name: "flags",
-                type: "bigint"
+                type: "number"
             },
             {
                 name: "tokens",
                 type: "string[]"
+            },
+            {
+                name: "bio",
+                type: "string"
+            },
+            {
+                name: "interaction_url",
+                type: "string"
+            },
+            {
+                name: "linked_roles_url",
+                type: "string"
+            },
+            {
+                name: "privacy_policy_url",
+                type: "string"
+            },
+            {
+                name: "tos_url",
+                type: "string"
+            },
+            {
+                name: "redirect_uris",
+                type: "string[]"
+            },
+            {
+                name: "client_secret",
+                type: "string"
             }
         ]
     }

@@ -1,5 +1,4 @@
 import EventEmitter from "node:events";
-import process from "node:process";
 import chalk from "chalk";
 import { logColors, type DDANWMOptions, type logTypes } from "../Types/Misc/DDANWM.type.js";
 import Database from "../Utils/Database.js";
@@ -34,11 +33,6 @@ class DDANWM extends EventEmitter {
         if (this.options.advanced?.database?.persistent) {
             // eslint-disable-next-line promise/prefer-await-to-then, promise/prefer-await-to-callbacks
             this.database.load().catch((error) => this.log("error", "Failed to load persistentence", error));
-
-            process.on("exit", () => {
-                // eslint-disable-next-line promise/prefer-await-to-then, promise/prefer-await-to-callbacks
-                this.database.save().catch((error) => this.log("error", "Failed to save persistentence", error));
-            });
 
             this.log("info", 'Loaded the persistent "database"');
         }

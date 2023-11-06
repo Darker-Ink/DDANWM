@@ -31,6 +31,7 @@ export interface DatabaseOptions {
 }
 
 export interface Column<T extends string = string> {
+    canBeNull?: boolean;
     default?: any;
     name: T;
     primary?: boolean;

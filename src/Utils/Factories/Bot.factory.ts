@@ -40,7 +40,7 @@ export const randomFlags = (nonBot: boolean = false, botVerified: boolean = fals
     return finalFlags;
 }
 
-export const generateBot = (): {
+export const generateBot = (avatar?: boolean): {
     avatar: string | null;
     avatar_decoration: string | null;
     bio: string | null;
@@ -56,7 +56,7 @@ export const generateBot = (): {
         username: faker.internet.userName(),
         id: generateBetween(1_441_765_848_298, Date.now()),
         // 33% chance of not having an avatar:
-        avatar: faker.number.float({ min: 0, max: 1 }) > 0.33 ? avatarHash() : null,
+        avatar: avatar ? avatarHash() : faker.number.float({ min: 0, max: 1 }) > 0.33 ? avatarHash() : null,
         global_name: null,
         avatar_decoration: null,
         bio: faker.number.float({ min: 0, max: 1 }) > 0.33 ? faker.person.bio() : null,

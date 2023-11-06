@@ -148,6 +148,7 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
 
             return {
                 required: true,
+                canBeNull: true,
                 ...column,
                 name: this.nameFix(column.name)
             };
@@ -204,34 +205,32 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         }
 
         for (const item of data) {
-            if (item === undefined) throw new Error("Required column not provided");
-
             const index = data.indexOf(item);
 
             const column = table.columns[index];
 
             if (!column) throw new Error("Invalid column");
 
-            if (item === null && column.required) throw new Error("Required column not provided");
+            if (item === null && column.required && !column.canBeNull) throw new Error(`Required column not provided, column: ${column.name}`);
 
-            if (item === null && !column.required) {
+            if (item === null && (!column.required || column.canBeNull)) {
                 data[index] = column.default ?? null;
 
                 continue;
             }
 
             if (column.type === "string[]") {
-                if (!Array.isArray(item)) throw new Error(`Invalid type for column ${column.name}`);
+                if (!Array.isArray(item)) throw new Error(`Invalid type for column ${column.name} (${item})`);
 
                 for (const item2 of item) {
-                    if (typeof item2 !== "string") throw new Error(`Invalid type for column ${column.name}`);
+                    if (typeof item2 !== "string") throw new Error(`Invalid type for column ${column.name} (${item})`);
                 }
 
                 continue;
             }
 
             // eslint-disable-next-line valid-typeof -- these are fine, but we jsut don't use all types
-            if (typeof item !== column.type) throw new Error(`Invalid type for column ${column.name}`);
+            if (typeof item !== column.type) throw new Error(`Invalid type for column ${column.name} (${item})`);
         }
 
         table.rows.set(primaryKey, data);

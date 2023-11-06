@@ -1,4 +1,5 @@
 import type DDANWM from "../DDANWM/DDANWM";
+import type { GeneralBotOptions, OAuth2Options } from "../Types/Misc/Helpers/Bots.type.js";
 import type { BotCreateOptions } from "../Types/Misc/Structures/Bot.type";
 import { generateBot } from "../Utils/Factories/Bot.factory.js";
 import { generateToken } from "../Utils/Token.js";
@@ -18,7 +19,11 @@ class Bot {
 
     public username: string;
 
-    protected token: string;
+    public oauth2: Partial<OAuth2Options> = {};
+
+    public general: Partial<GeneralBotOptions> = {};
+
+    public token: string;
 
     protected readonly ddanwm: DDANWM;
 
@@ -42,9 +47,23 @@ class Bot {
 
         this.username = options?.username ?? defaultBot.username;
 
-        this.token = generateToken(this.id);
+        this.token = options?.token ?? generateToken(this.id);
 
-        // this.ddanwm.bots.set(this.id, this);
+        this.general = options?.general ?? {
+            bio: null,
+            interactionUrl: null,
+            linkedRolesUrl: null,
+            privacyPolicyUrl: null,
+            tosUrl: null,
+        };
+
+        this.oauth2 = options?.oauth2 ?? {
+            redirectUris: [],
+            clientId: this.id,
+            clientSecret: generateToken(this.id), // darkerink: for now just default to a newly generated token, later though we will generate real client secrets which match discord's
+        };
+
+        this.ddanwm.bots.create(this);
     }
 }
 
