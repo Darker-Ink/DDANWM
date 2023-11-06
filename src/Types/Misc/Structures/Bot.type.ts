@@ -1,4 +1,4 @@
-import { ApplicationFlags, UserFlags, type APIUser } from 'discord-api-types/v10';
+import { ApplicationFlags, UserFlags, type APIUser } from "discord-api-types/v10";
 
 interface BaseOptions {
     avatar: string | null;

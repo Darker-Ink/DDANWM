@@ -23,14 +23,14 @@ export const generateToken = (id: string, date?: Date) => {
 
     timestamp.writeUInt32BE(dateToUse);
 
-    const base64Id = Buffer.from(id).toString('base64url');
-    const base64Timestamp = timestamp.toString('base64url');
+    const base64Id = Buffer.from(id).toString("base64url");
+    const base64Timestamp = timestamp.toString("base64url");
 
-    const hmac = crpyto.createHmac('sha256', base64Id);
+    const hmac = crpyto.createHmac("sha256", base64Id);
 
     hmac.update(base64Timestamp);
 
-    const base64Hmac = hmac.digest('base64url');
+    const base64Hmac = hmac.digest("base64url");
 
     return `${base64Id}.${base64Timestamp}.${base64Hmac}`;
 }
@@ -39,7 +39,7 @@ export const generateToken = (id: string, date?: Date) => {
  * Parses a token and returns the id, date and if the hmac is valid
  */
 export const parseToken = (token: string) => {
-    const [id, timestamp, hmac] = token.split('.');
+    const [id, timestamp, hmac] = token.split(".");
 
     if (!id || !timestamp || !hmac) {
         return {
@@ -49,14 +49,14 @@ export const parseToken = (token: string) => {
         }
     }
 
-    const base64Id = Buffer.from(id, 'base64url').toString();
-    const base64Timestamp = Buffer.from(timestamp, 'base64url').toString();
+    const base64Id = Buffer.from(id, "base64url").toString();
+    const base64Timestamp = Buffer.from(timestamp, "base64url").toString();
 
-    const hmacToCheck = crpyto.createHmac('sha256', base64Id);
+    const hmacToCheck = crpyto.createHmac("sha256", base64Id);
 
     hmacToCheck.update(base64Timestamp);
 
-    const base64Hmac = hmacToCheck.digest('base64url');
+    const base64Hmac = hmacToCheck.digest("base64url");
 
     const date = new Date((Number.parseInt(base64Timestamp, 10) + initialEpoch) * 1_000);
 

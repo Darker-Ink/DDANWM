@@ -1562,6 +1562,7 @@ __metadata:
     "@types/cors": ^2.8.15
     "@types/node": ^20.8.10
     "@types/pako": ^2.0.2
+    chalk: ^5.3.0
     cors: ^2.8.5
     discord-api-types: ^0.37.62
     eslint: ^8.52.0

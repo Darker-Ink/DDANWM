@@ -11,10 +11,31 @@ export interface DDANWMOptions {
         host: string;
         port: number;
     };
+    debug?: {
+        api: {
+            raw?: boolean;
+            requests?: boolean;
+            responses?: boolean;
+        },
+        ddanwm: {
+            logs?: boolean;
+        },
+        ws: {
+            heartbeats?: boolean;
+            messages?: boolean;
+            opcodes?: boolean;
+            payloads?: boolean;
+            raw?: boolean;
+        }
+    },
     /**
      * @description The default API version to use when no version is specified, Discord's default is v6, though we do not plan on supporting that version (unless someone plans to make a PR for it)
      */
-    defaultApiVersion: 'v9' | 'v10';
+    defaultApiVersion: "v9" | "v10";
+    /**
+     * @description If we don't log anything to the console
+     */
+    silent?: boolean;
     ws: {
         host: string;
         /**
@@ -23,4 +44,14 @@ export interface DDANWMOptions {
         maxConnections: number;
         port: number;
     };
+}
+
+export type logTypes = "debug" | "error" | "info" | "warn"
+
+export const logColors: Record<logTypes | "date", string> = {
+    debug: "6b00cf",
+    error: "880808",
+    info: "268bf0",
+    warn: "bdbd00",
+    date: "4fbd00"
 }

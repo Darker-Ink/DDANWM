@@ -1,4 +1,4 @@
-import { GatewayDispatchEvents } from 'discord-api-types/gateway/v10';
+import { GatewayDispatchEvents } from "discord-api-types/gateway/v10";
 
 export interface EventType {
     random?: boolean;

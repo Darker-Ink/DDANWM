@@ -9,6 +9,7 @@
 		"require-atomic-updates": "off",
 		"unicorn/no-unsafe-regex": "off",
 		"unicorn/prefer-export-from": "off",
-		"tsdoc/syntax": "off"
+		"tsdoc/syntax": "off",
+		"quotes": ["error", "double", { "avoidEscape": true }]
 	}
 }

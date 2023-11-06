@@ -27,7 +27,7 @@ export interface DatabaseOptions {
     /**
      * If it stores it in binary or json
      */
-    saveType?: 'binary' | 'json';
+    saveType?: "binary" | "json";
 }
 
 export interface Column<T extends string = string> {
@@ -39,5 +39,5 @@ export interface Column<T extends string = string> {
 }
 
 export type ColumnsMap<T extends readonly { columns: string[], name: string }[]> = {
-    [K in T[number]['name']]: Extract<T[number], { name: K }>['columns'][number];
+    [K in T[number]["name"]]: Extract<T[number], { name: K }>["columns"][number];
 };

@@ -41,8 +41,8 @@ export const Tables = [
 
 export type TableToColumns<T extends readonly { columns: readonly { name: string, type: string; }[], name: string; }[]> = {
     [K in keyof T]: {
-        columns: Extract<T[K]['columns'][number]['name'], string>[],
-        name: T[K]['name'];
+        columns: Extract<T[K]["columns"][number]["name"], string>[],
+        name: T[K]["name"];
     }
 };
 

@@ -1,4 +1,4 @@
-import crypto from 'node:crypto';
+import crypto from "node:crypto";
 
 /**
  * Generates a random user avatar hash.
@@ -8,7 +8,7 @@ import crypto from 'node:crypto';
  * @since 1.0.0
  */
 export const avatarHash = () => {
-    return crypto.randomBytes(16).toString('hex');
+    return crypto.randomBytes(16).toString("hex");
 };
 
 /**
@@ -19,5 +19,5 @@ export const avatarHash = () => {
  * @since 1.0.0
  */
 export const bannerHash = () => {
-    return crypto.randomBytes(16).toString('hex');
+    return crypto.randomBytes(16).toString("hex");
 };

@@ -1,7 +1,7 @@
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker";
 import { ApplicationFlags } from "../../Types/Misc/Structures/Bot.type.js";
-import { UserFlags } from '../../constants/Flags.js';
-import { avatarHash } from '../Hashes.js';
+import { UserFlags } from "../../constants/Flags.js";
+import { avatarHash } from "../Hashes.js";
 import { generateBetween } from "../Snowflake.js";
 
 export const BotFlagsAllowed = [
@@ -60,7 +60,7 @@ export const generateBot = (): {
         global_name: null,
         avatar_decoration: null,
         bio: faker.number.float({ min: 0, max: 1 }) > 0.33 ? faker.person.bio() : null,
-        discriminator: faker.number.int({ min: 1, max: 9_999 }).toString().padStart(4, '0'),
+        discriminator: faker.number.int({ min: 1, max: 9_999 }).toString().padStart(4, "0"),
         flags: randomFlags(),
     }
 }

@@ -2,7 +2,7 @@ import { Buffer } from "node:buffer";
 import { writeFile, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import process from "node:process";
-import { deflate, inflate } from 'pako';
+import { deflate, inflate } from "pako";
 import type { Column, ColumnsMap, DatabaseOptions } from "../Types/Misc/Database.type";
 
 
@@ -32,11 +32,11 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
     }
 
     public async save() {
-        if (!this.options.persistent) throw new Error('Cannot save a non-persistent database');
+        if (!this.options.persistent) throw new Error("Cannot save a non-persistent database");
 
-        const data = this.options.saveType === 'binary' ? this.binarify() : JSON.stringify(Object.entries(this.database));
+        const data = this.options.saveType === "binary" ? this.binarify() : JSON.stringify(Object.entries(this.database));
 
-        const path = join(process.cwd(), this.options.path ?? './', `database.${this.options.saveType === 'binary' ? 'dmc' : 'json'}`);
+        const path = join(process.cwd(), this.options.path ?? "./", `database.${this.options.saveType === "binary" ? "dmc" : "json"}`);
 
         await writeFile(path, data);
 
@@ -44,13 +44,13 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
     }
 
     public async load() {
-        if (!this.options.persistent) throw new Error('Cannot load a non-persistent database');
+        if (!this.options.persistent) throw new Error("Cannot load a non-persistent database");
 
-        const path = join(process.cwd(), this.options.path ?? './', `database.${this.options.saveType === 'binary' ? 'dmc' : 'json'}`);
+        const path = join(process.cwd(), this.options.path ?? "./", `database.${this.options.saveType === "binary" ? "dmc" : "json"}`);
 
         const data = await readFile(path);
 
-        if (this.options.saveType === 'binary') {
+        if (this.options.saveType === "binary") {
             this.database = this.debinarify(data as unknown as string);
         } else {
             this.database = Object.fromEntries(JSON.parse(data.toString()));
@@ -59,8 +59,12 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         return true;
     }
 
+    /**
+     * @description Turns all the data in the `database` property into binary data which is pretty much just zlib compressed json with some extra steps to convert a map into a easily parseable format
+     * @returns The binary data
+     */
     private binarify() {
-        if (this.options.saveType !== 'binary') throw new Error('Cannot binarify a non-binary database');
+        if (this.options.saveType !== "binary") throw new Error("Cannot binarify a non-binary database");
 
         const data = Object.entries(this.database).map(([key, value]) => {
             const data2 = [...value.rows.entries()].map(([key2, value2]) => {
@@ -85,10 +89,15 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         return deflate(JSON.stringify(data));
     }
 
+    /**
+     * @description Turns binary data into a usable format for the `database` property
+     * @param data The binary data
+     * @returns The parsed data
+     */
     private debinarify(data: string) {
-        if (this.options.saveType !== 'binary') throw new Error('Cannot debinarify a non-binary database');
+        if (this.options.saveType !== "binary") throw new Error("Cannot debinarify a non-binary database");
 
-        const string = inflate(Buffer.from(data, 'base64'), { to: 'string' });
+        const string = inflate(Buffer.from(data, "base64"), { to: "string" });
 
         const parsedData = JSON.parse(string);
         const newData: Record<string, any> = {};
@@ -116,13 +125,22 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         return newData;
     }
 
+    /**
+     * @description Fixes the name of a table or column to be more usable (turning it into snake_case)
+     * @param name The name to fix
+     * @returns
+     */
     private nameFix(name: string) {
         // sneks the name
         // eslint-disable-next-line prefer-named-capture-group -- I hate regex eslint rules
         return name.replaceAll(/([A-Z])/g, " $1").split(" ").join("_").toLowerCase();
     }
 
-    public createTable<Z extends T[number]['name'] = "">(name: Z, columns: readonly Column<ColumnsMap<T>[Z]>[]) {
+    /**
+     * @description Creates a table (Do not use this unless you know what you are doing)
+     * @unstable
+     */
+    public createTable<Z extends T[number]["name"] = "">(name: Z, columns: readonly Column<ColumnsMap<T>[Z]>[]) {
         if (["__proto__", "constructor", "prototype"].includes(name)) return false; // This protects against prototype pollution
 
         const fixedColumns = columns.map(column => {
@@ -143,7 +161,11 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         return true;
     }
 
-    public deleteTable<Z extends T[number]['name'] = "">(name: Z) {
+    /**
+     * @description Deletes a table (Do not use this unless you know what you are doing)
+     * @unstable
+     */
+    public deleteTable<Z extends T[number]["name"] = "">(name: Z) {
         if (["__proto__", "constructor", "prototype"].includes(name)) return false; // This protects against prototype pollution
 
         // eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- this is safe
@@ -152,13 +174,13 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         return true;
     }
 
-    public getTable<Z extends T[number]['name'] = "">(name: Z) {
+    public getTable<Z extends T[number]["name"] = "">(name: Z) {
         if (["__proto__", "constructor", "prototype"].includes(name)) return false; // This protects against prototype pollution
 
         return this.database[this.nameFix(name)];
     }
 
-    public create<Z extends T[number]['name'] = "", D extends Record<string, any> = {}>(tableName: Z, data: any[]): D | null {
+    public create<Z extends T[number]["name"] = "", D extends Record<string, any> = {}>(tableName: Z, data: any[]): D | null {
         if (["__proto__", "constructor", "prototype"].includes(tableName)) return null; // This protects against prototype pollution
 
         const table = this.database[this.nameFix(tableName)];
@@ -169,7 +191,7 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
 
         const primaryKey = data[tableIndex];
 
-        if (!primaryKey) throw new Error('Primary key not provided');
+        if (!primaryKey) throw new Error("Primary key not provided");
 
         const notRequiredOptions = table.columns.filter(column => !column.required);
 
@@ -182,15 +204,15 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         }
 
         for (const item of data) {
-            if (item === undefined) throw new Error('Required column not provided');
+            if (item === undefined) throw new Error("Required column not provided");
 
             const index = data.indexOf(item);
 
             const column = table.columns[index];
 
-            if (!column) throw new Error('Invalid column');
+            if (!column) throw new Error("Invalid column");
 
-            if (item === null && column.required) throw new Error('Required column not provided');
+            if (item === null && column.required) throw new Error("Required column not provided");
 
             if (item === null && !column.required) {
                 data[index] = column.default ?? null;
@@ -198,11 +220,11 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
                 continue;
             }
 
-            if (column.type === 'string[]') {
+            if (column.type === "string[]") {
                 if (!Array.isArray(item)) throw new Error(`Invalid type for column ${column.name}`);
 
                 for (const item2 of item) {
-                    if (typeof item2 !== 'string') throw new Error(`Invalid type for column ${column.name}`);
+                    if (typeof item2 !== "string") throw new Error(`Invalid type for column ${column.name}`);
                 }
 
                 continue;
@@ -223,7 +245,7 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         return dataToReturn as D;
     }
 
-    public delete<Z extends T[number]['name'] = "">(name: Z, primaryKey: string) {
+    public delete<Z extends T[number]["name"] = "">(name: Z, primaryKey: string) {
         if (["__proto__", "constructor", "prototype"].includes(name)) return false; // This protects against prototype pollution
 
         const table = this.database[this.nameFix(name)];
@@ -233,7 +255,7 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         return table.rows.delete(primaryKey);
     }
 
-    public get<Z extends T[number]['name'] = "", D extends Record<string, any> = {}>(name: Z, primaryKey: any): D | null | undefined {
+    public get<Z extends T[number]["name"] = "", D extends Record<string, any> = {}>(name: Z, primaryKey: any): D | null | undefined {
         if (["__proto__", "constructor", "prototype"].includes(name)) return null; // This protects against prototype pollution
 
         const table = this.database[this.nameFix(name)];
