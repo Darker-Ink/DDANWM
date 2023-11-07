@@ -12,15 +12,15 @@ export interface DDANWMOptions {
         port: number;
     };
     debug?: {
-        api: {
+        api?: {
             raw?: boolean;
             requests?: boolean;
             responses?: boolean;
         },
-        ddanwm: {
+        ddanwm?: {
             logs?: boolean;
         },
-        ws: {
+        ws?: {
             heartbeats?: boolean;
             messages?: boolean;
             opcodes?: boolean;

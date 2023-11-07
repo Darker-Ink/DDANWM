@@ -23,7 +23,7 @@ class Bot {
 
     public general: Partial<GeneralBotOptions> = {};
 
-    public token: string;
+    public tokens: string[];
 
     protected readonly ddanwm: DDANWM;
 
@@ -47,7 +47,7 @@ class Bot {
 
         this.username = options?.username ?? defaultBot.username;
 
-        this.token = options?.token ?? generateToken(this.id);
+        this.tokens = options?.token ? [options.token] : [generateToken(this.id)];
 
         this.general = options?.general ?? {
             bio: null,

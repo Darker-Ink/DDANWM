@@ -50,11 +50,11 @@ export const parseToken = (token: string) => {
     }
 
     const base64Id = Buffer.from(id, "base64url").toString();
-    const base64Timestamp = Buffer.from(timestamp, "base64url").toString();
+    const base64Timestamp = Buffer.from(timestamp, "base64url").readUInt32BE().toString();
 
-    const hmacToCheck = crpyto.createHmac("sha256", base64Id);
+    const hmacToCheck = crpyto.createHmac("sha256", id);
 
-    hmacToCheck.update(base64Timestamp);
+    hmacToCheck.update(timestamp);
 
     const base64Hmac = hmacToCheck.digest("base64url");
 
@@ -67,7 +67,6 @@ export const parseToken = (token: string) => {
             hmac: false
         }
     }
-
 
     return {
         id: base64Id,
