@@ -29,5 +29,6 @@
 		"lib": ["ESNext", "DOM"],
 		"target": "ES2021",
 		"useDefineForClassFields": true
-	}
+	},
+	"exclude": ["./tests", "./dist", "./node_modules"]
 }

@@ -10,6 +10,7 @@
 		"unicorn/no-unsafe-regex": "off",
 		"unicorn/prefer-export-from": "off",
 		"tsdoc/syntax": "off",
-		"quotes": ["error", "double", { "avoidEscape": true }]
+		"quotes": ["error", "double", { "avoidEscape": true }],
+		"@typescript-eslint/unbound-method": "off" // darkerink: I know this isn't safe, though I feel its the best way for the routes class to work
 	}
 }
