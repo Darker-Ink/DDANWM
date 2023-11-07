@@ -1,6 +1,7 @@
 import Bot from "../../Structures/Bot.js";
 import type { CreateBotOptions } from "../../Types/Misc/Helpers/Bots.type.js";
 import { generateBot } from "../../Utils/Factories/Bot.factory.js";
+import { parseToken } from "../../Utils/Token.js";
 import type DDANWM from "../DDANWM.js";
 
 class Bots {
@@ -44,7 +45,7 @@ class Bots {
                 bot.avatar,
                 bot.avatarDecoration,
                 bot.flags,
-                [bot.token],
+                bot.tokens,
                 bot.general.bio,
                 bot.general.interactionUrl,
                 bot.general.linkedRolesUrl,
@@ -64,6 +65,42 @@ class Bots {
         this.ddanwm.database.delete("bots", id);
 
         return this;
+    }
+
+    /**
+     * @description Checks if a token is valid and returns the bot if it is
+     */
+    public checkAuthenticity(token: string) {
+        const parsedToken = parseToken(token);
+
+        if (!parsedToken.date || !parsedToken.id || !parsedToken.hmac) {
+            return {
+                valid: false,
+                bot: null
+            }
+        }
+
+        const bot = this.bots.get(parsedToken.id);
+
+        if (!bot) {
+            return {
+                valid: false,
+                bot: null
+            }
+        }
+
+
+        if (!bot.tokens.includes(token)) {
+            return {
+                valid: false,
+                bot: null
+            }
+        }
+
+        return {
+            valid: true,
+            bot
+        }
     }
 }
 
