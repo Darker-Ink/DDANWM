@@ -19,7 +19,6 @@ export const Authentication = (
 
         const error = Errors.unAuthorized();
 
-
         if (!authHeader || !authHeader.startsWith("Bot ")) {
             if (options.type === "optional") {
                 next();

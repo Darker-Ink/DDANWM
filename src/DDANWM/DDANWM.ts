@@ -13,8 +13,8 @@ import { Tables, type TableColumns } from "../constants/Tables.js";
 import Bots from "./Helpers/Bots.helper.js";
 
 interface DDANWM {
-    emit(event: "log", type: logTypes, ...message: string[]): boolean;
-    on(event: "log", listener: (type: logTypes, ...message: string[]) => void): this;
+    emit(event: "log", type: logTypes, ...message: (bigint | boolean | number | string)[]): boolean;
+    on(event: "log", listener: (type: logTypes, ...message: (bigint | boolean | number | string)[]) => void): this;
 }
 
 class DDANWM extends EventEmitter {
@@ -59,7 +59,7 @@ class DDANWM extends EventEmitter {
         }
     }
 
-    public log(type: logTypes, ...message: string[]) {
+    public log(type: logTypes, ...message: (bigint | boolean | number | string)[]) {
         this.emit("log", type, ...message); // we also emit the log event
 
         if (!this.shouldLog) return;
@@ -103,7 +103,7 @@ class DDANWM extends EventEmitter {
      * @unstable
      * @description Loads all files in a directory (This is a private method, so you shouldn't use it)
      */
-    public async loadFiles(directory: string): Promise<DDANWMFile[]> {
+    public async loadFiles<T = "api" | "ws">(directory: string): Promise<DDANWMFile<T>[]> {
         const Files = await this.walkDirectory(directory);
 
         const finishedArray: {
@@ -169,7 +169,7 @@ class DDANWM extends EventEmitter {
 
         }
 
-        return finishedArray as DDANWMFile[];
+        return finishedArray as DDANWMFile<T>[];
     }
 
     /**

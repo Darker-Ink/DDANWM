@@ -48,13 +48,11 @@ class API {
     }
 
     public async start() {
-        const routes = await this.ddanwm.loadFiles(this.RouteDirectory)
+        const routes = await this.ddanwm.loadFiles<"api">(this.RouteDirectory)
 
         const defaultVersions = routes.filter((route) => route.version === this?.ddanwm?.options?.defaultApiVersion);
 
         for (const defaultVersion of defaultVersions) {
-            if (defaultVersion.type !== "route") continue;
-
             this.ddanwm.log("debug", `Registering route "${defaultVersion.versionlessRoute}" (Default API Version)`);
 
             // darkerink: WARNING (this goes for the routes for loop as well):
@@ -75,8 +73,6 @@ class API {
         }
 
         for (const route of routes) {
-            if (route.type !== "route") continue;
-
             this.ddanwm.log("debug", `Registering route "${route.path}"`);
 
             this.app.all(route.path, route.default.middleware, (req: Request, res: Response, next: NextFunction) => {
