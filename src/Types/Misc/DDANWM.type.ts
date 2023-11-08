@@ -1,5 +1,8 @@
 import type Route from "../../API/Route.js";
+import type Event from "../../WebSocket/Event.js";
 import type { DatabaseOptions } from "./Database.type";
+
+export type apiVersions = "v9" | "v10"
 
 /**
  * The options for the DDANWM class
@@ -32,7 +35,7 @@ export interface DDANWMOptions {
     /**
      * @description The default API version to use when no version is specified, Discord's default is v6, though we do not plan on supporting that version (unless someone plans to make a PR for it)
      */
-    defaultApiVersion: "v9" | "v10";
+    defaultApiVersion: apiVersions;
     /**
      * @description If we don't log anything to the console
      */
@@ -74,4 +77,4 @@ interface WsEventType {
     version: string;
 }
 
-export type DDANWMFile = RouteType | WsEventType;
+export type DDANWMFile<T = "api" | "ws"> = T extends "ws" ? WsEventType : RouteType;
