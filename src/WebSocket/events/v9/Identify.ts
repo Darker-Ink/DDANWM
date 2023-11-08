@@ -10,6 +10,8 @@ export default class Identify extends Event {
         super(ddanwm)
 
         this.op = GatewayOpcodes.Identify;
+
+        this.authRequired = false;
     }
 
     public override async handleRequest(ws: WsUser, data: RecursivePartial<GatewayIdentifyData>): Promise<void> {

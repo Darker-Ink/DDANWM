@@ -6,6 +6,8 @@ class Event {
 
     public op: number;
 
+    public authRequired: boolean = true;
+
     public constructor(ddanwm: DDANWM) {
         this.ddanwm = ddanwm;
 
