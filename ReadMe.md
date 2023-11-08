@@ -30,15 +30,15 @@ Wanna help out? Great! Just fork the repo, make your changes, and make a pull re
 
 Please make sure to read the [Contributing Guidelines](/CONTRIBUTING.md) before contributing.
 
-## Supported API Versions
+## Supported API / WS Versions
 
-| Version | Status       | Available |
-| ------- | ------------ | --------- |
-| 10      | In Progress  |           |
-| 9       | In Progress  |           |
-| 8       | Deprecated   |           |
-| 7       | Deprecated   |           |
-| 6       | Deprecated   |           |
-| 5       | Discontinued |           |
-| 4       | Discontinued |           |
-| 3       | Discontinued |           |
+| Version | Status       | Available | Will Be Worked On |
+| ------- | ------------ | --------- | ----------------- |
+| 10      | In Progress  |           | Y                 |
+| 9       | In Progress  |           | Y                 |
+| 8       | Deprecated   |           | N                 |
+| 7       | Deprecated   |           | N                 |
+| 6       | Deprecated   |           | N                 |
+| 5       | Discontinued |           | N                 |
+| 4       | Discontinued |           | N                 |
+| 3       | Discontinued |           | N                 |
