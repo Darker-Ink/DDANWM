@@ -1,12 +1,12 @@
 import type { Request, Response } from "express";
-import type API from "../../../API.js";
+import type DDANWM from "../../../../DDANWM/DDANWM.js";
 import Route from "../../../Route.js";
 
 export default class Bot extends Route {
     private readonly options: { maxConcurrency: number; remaining: number; resetAfter: number; total: number; };
 
-    public constructor(api: API) {
-        super(api);
+    public constructor(ddanwm: DDANWM) {
+        super(ddanwm);
 
         this.routes = [
             {
@@ -17,7 +17,7 @@ export default class Bot extends Route {
             }
         ]
 
-        this.middleware = this.api.defaultMiddleware;
+        this.middleware = this.ddanwm.api.defaultMiddleware;
 
         this.options = {
             maxConcurrency: 1,
@@ -29,7 +29,7 @@ export default class Bot extends Route {
 
     private botResponse(_: Request, res: Response) {
         res.send({
-            url: `ws://${this?.api?.ddanwm?.options?.ws?.host}:${this.api.ddanwm.options.ws.port}`,
+            url: `ws://${this.ddanwm.options.ws.host}:${this.ddanwm.options.ws.port}`,
             session_start_limit: this.options,
             shards: 1
         })

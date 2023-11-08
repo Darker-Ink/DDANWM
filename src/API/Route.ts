@@ -1,11 +1,11 @@
 import type { NextFunction, Request, Response } from "express";
-import type API from "./API.js";
+import type DDANWM from "../DDANWM/DDANWM.js";
 
 export type Methods = "DELETE" | "GET" | "PATCH" | "POST" | "PUT";
 export type ContentTypes = "application/json" | "application/x-www-form-urlencoded" | "multipart/form-data";
 
 class Route {
-    protected readonly api: API;
+    protected readonly ddanwm: DDANWM;
 
     public middleware: ((req: Request, res: Response, next: NextFunction) => Promise<void> | void)[];
 
@@ -17,9 +17,9 @@ class Route {
     }[];
 
     public constructor(
-        api: API
+        ddanwm: DDANWM
     ) {
-        this.api = api;
+        this.ddanwm = ddanwm;
 
         this.middleware = [];
 

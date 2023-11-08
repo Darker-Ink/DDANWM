@@ -1,16 +1,14 @@
-import { readdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { NextFunction, Request, Response } from "express";
 import express from "express";
 import type DDANWM from "../DDANWM/DDANWM.js";
 import { Errors } from "../Utils/Errors.js";
-import { Route as RouteBuilder } from "./Route.js";
 import { Authentication } from "./middleware/Auth.js";
 import { RateLimit } from "./middleware/Ratelimiter.js";
 
 class API {
-    private RouteDirectory: string = this.convertWindowsPath(join(dirname(fileURLToPath(import.meta.url)), "./routes"));
+    private readonly RouteDirectory: string;
 
     public readonly ddanwm: DDANWM;
 
@@ -20,6 +18,8 @@ class API {
 
     public constructor(ddanwm: DDANWM) {
         this.ddanwm = ddanwm;
+
+        this.RouteDirectory = this.ddanwm.convertWindowsPath(join(dirname(fileURLToPath(import.meta.url)), "./routes"))
 
         this.app = express();
 
@@ -48,11 +48,13 @@ class API {
     }
 
     public async start() {
-        const routes = await this.loadRoutes();
+        const routes = await this.ddanwm.loadFiles(this.RouteDirectory)
 
         const defaultVersions = routes.filter((route) => route.version === this?.ddanwm?.options?.defaultApiVersion);
 
         for (const defaultVersion of defaultVersions) {
+            if (defaultVersion.type !== "route") continue;
+
             this.ddanwm.log("debug", `Registering route "${defaultVersion.versionlessRoute}" (Default API Version)`);
 
             // darkerink: WARNING (this goes for the routes for loop as well):
@@ -73,6 +75,8 @@ class API {
         }
 
         for (const route of routes) {
+            if (route.type !== "route") continue;
+
             this.ddanwm.log("debug", `Registering route "${route.path}"`);
 
             this.app.all(route.path, route.default.middleware, (req: Request, res: Response, next: NextFunction) => {
@@ -99,83 +103,6 @@ class API {
         });
 
         return true;
-    }
-
-    private async walkDirectory(dir: string): Promise<string[]> {
-        const Routes = await readdir(dir, { withFileTypes: true });
-
-        const Files: string[] = [];
-
-        for (const Route of Routes) {
-            if (Route.isDirectory()) {
-                const SubFiles = await this.walkDirectory(join(dir, Route.name));
-                Files.push(...SubFiles);
-            } else {
-                Files.push(join(dir, Route.name));
-            }
-        }
-
-        return Files;
-    }
-
-    private async loadRoutes() {
-        const Routes = await this.walkDirectory(this.RouteDirectory);
-
-        const routes = [];
-
-        for (const Route of Routes) {
-            if (Route.endsWith(".map") || Route.endsWith(".d.ts")) {
-                continue;
-            }
-
-            // ts part is since I test with bun and don't want to recompile each time
-            if (!Route.endsWith(".js") && !Route.endsWith(".ts")) {
-                this.ddanwm.log("debug", `Skipping ${Route} as it is not a route file`);
-
-                continue;
-            }
-
-            const RouteClass = await import(this.convertWindowsPath(Route));
-
-            if (!RouteClass.default) {
-                this.ddanwm.log("warn", `Skipping ${Route} as it does not have a default export`);
-
-                continue;
-            }
-
-            const version = /v\d+/g.exec(Route)?.[0];
-
-            if (!version) {
-                throw new Error(`Failed to get version from ${Route}`);
-            }
-
-            const RouteInstance = new RouteClass.default(this);
-
-            if (!(RouteInstance instanceof RouteBuilder)) {
-                this.ddanwm.log("warn", `Skipping ${Route} as it does not extend Route`);
-
-                continue;
-            }
-
-            for (const route of RouteInstance.routes) {
-                const fixedRoute =(this.convertWindowsPath(Route).split(this.RouteDirectory)[1]?.split("/").slice(0, -1).join("/") ?? "") + route.path
-
-                routes.push({
-                    default: RouteInstance,
-                    directory: this.convertWindowsPath(Route),
-                    path: "/api" + fixedRoute.replaceAll(/\[([^\]]+)]/g, ":$1"),  // eslint-disable-line prefer-named-capture-group
-                    route,
-                    version,
-                    versionlessRoute: fixedRoute.replaceAll(`/${version}`, "")
-                });
-            }
-        }
-
-        return routes;
-    }
-
-    private convertWindowsPath(path: string) {
-        return path.replace(/^[A-Za-z]:/, "").replaceAll("\\", "/");
     }
 }
 

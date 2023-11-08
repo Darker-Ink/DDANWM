@@ -1,3 +1,4 @@
+import type Route from "../../API/Route.js";
 import type { DatabaseOptions } from "./Database.type";
 
 /**
@@ -55,3 +56,22 @@ export const logColors: Record<logTypes | "date", string> = {
     warn: "bdbd00",
     date: "4fbd00"
 }
+
+interface RouteType {
+    default: Route;
+    directory: string;
+    path: string;
+    route: Route["routes"][number];
+    type: "route";
+    version: string;
+    versionlessRoute: string;
+}
+
+interface WsEventType {
+    default: Event;
+    directory: string;
+    type: "wsEvent";
+    version: string;
+}
+
+export type DDANWMFile = RouteType | WsEventType;
