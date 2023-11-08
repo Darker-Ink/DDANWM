@@ -1,3 +1,7 @@
+import { GatewayCloseCodes as CloseCodesv10 } from "discord-api-types/gateway/v10"
+import { GatewayCloseCodes as CloseCodesv9 } from "discord-api-types/gateway/v9"
+import type { apiVersions } from "../Types/Misc/DDANWM.type.js";
+
 export const Errors = {
     /**
      * @description Returns a 401 error, this is used when authentication fails
@@ -30,3 +34,26 @@ export const Errors = {
         }
     }),
 };
+
+export const WsErrors = {
+    authenticationFailed: (version: apiVersions = "v10") => ({
+        code: version === "v10" ? CloseCodesv10.AuthenticationFailed : CloseCodesv9.AuthenticationFailed,
+        response: "Authentication failed."
+    }),
+    nolongerSupported: () => ({
+        code: CloseCodesv10.InvalidAPIVersion,
+        response: "Requested gateway version is no longer supported or invalid."
+    }),
+    invalidPayload: () => ({
+        code: CloseCodesv10.DecodeError,
+        response: "Error while decoding payload."
+    }),
+    notAuthenticated: () => ({
+        code: CloseCodesv10.NotAuthenticated,
+        response: "Not authenticated."
+    }),
+    unknownOpCode: () => ({
+        code: CloseCodesv10.UnknownOpcode,
+        response: "Unknown opcode."
+    }),
+}
