@@ -7,17 +7,24 @@ import crypto from "node:crypto";
  *
  * @since 1.0.0
  */
-export const avatarHash = () => {
+export const avatarAndBannerHash = () => {
     return crypto.randomBytes(16).toString("hex");
 };
 
 /**
- * Generates a random banner hash.
- *
- * An example one is `edf8a0dd2c16c7708d88c26143e0cba1`
- *
- * @since 1.0.0
+ * Session id's are for the WS, I just generate a random 16 byte hex string. I'm not sure if there is a pattern to them.
  */
-export const bannerHash = () => {
+export const sessionId = () => {
     return crypto.randomBytes(16).toString("hex");
-};
+}
+
+/**
+ * Generates a random client secret for oauth.
+ *
+ * Here are two examples `ACkjeCyZ2qacaF-MlkCRFyJn8CIO_Ety` & `K95gKdfCA3O0RGNzWfgkgn27JtN2vDtj`
+ *
+ * There doesn't seem to be a pattern to them, so I just generate a 16 byte hex string and return it.
+ */
+export const clientSecret = () => {
+    return crypto.randomBytes(16).toString("hex");
+}

@@ -1,13 +1,15 @@
 import { ApplicationFlags, UserFlags, type APIUser } from "discord-api-types/v10";
+import type User from "../../../Structures/User.js";
 import type { GeneralBotOptions, OAuth2Options } from "../Helpers/Bots.type.js";
 
 interface BaseOptions {
+    applicationFlags: ApplicationFlags;
     avatar: string | null;
     avatar_decoration: string | null;
     discriminator: string;
-    flags: ApplicationFlags | UserFlags;
     global_name: string | null;
     id: string;
+    userFlags: UserFlags;
     username: string;
 }
 
@@ -26,8 +28,9 @@ export type BotCreateOptions = Partial<BaseOptions> & {
     locale?: never;
     mfa_enabled?: never;
     oauth2?: Partial<OAuth2Options> | undefined;
+    owner?: User,
     system?: never;
-    token?: string | undefined;// ????
+    token?: string | undefined; // ????
     verified?: never;
 };
 

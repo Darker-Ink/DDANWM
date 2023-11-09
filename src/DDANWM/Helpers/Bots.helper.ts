@@ -1,5 +1,6 @@
+import { ApplicationFlags, UserFlags } from "discord-api-types/v10";
 import Bot from "../../Structures/Bot.js";
-import type { CreateBotOptions } from "../../Types/Misc/Helpers/Bots.type.js";
+import type { BotFlags, CreateBotOptions } from "../../Types/Misc/Helpers/Bots.type.js";
 import { generateBot } from "../../Utils/Factories/Bot.factory.js";
 import { parseToken } from "../../Utils/Token.js";
 import type DDANWM from "../DDANWM.js";
@@ -8,6 +9,16 @@ class Bots {
     protected readonly ddanwm: DDANWM;
 
     protected readonly bots: Map<string, Bot>;
+
+    protected readonly flagsMap: BotFlags<number> = {
+        guildMembersGateway: ApplicationFlags.GatewayGuildMembers,
+        hasAutoMod: ApplicationFlags.ApplicationAutoModerationRuleCreateBadge,
+        hasSlashCommands: ApplicationFlags.ApplicationCommandBadge,
+        messageContentGateway: ApplicationFlags.GatewayMessageContent,
+        presenceGateway: ApplicationFlags.GatewayPresence,
+        verified: UserFlags.VerifiedBot,
+        interactionBased: UserFlags.BotHTTPInteractions,
+    }
 
     public constructor(
         ddanwm: DDANWM,
@@ -25,6 +36,29 @@ class Bots {
         } else {
             const defaultBot = generateBot(options?.avatar);
 
+            const fixedFlags = {
+                applicationFlags: defaultBot.applicationFlags,
+                userFlags: defaultBot.userFlags
+            };
+
+            for (const [key, value] of Object.entries(options?.flags ?? {})) {
+                if (key === "verified") {
+                    if (value) {
+                        fixedFlags.userFlags |= UserFlags.VerifiedBot;
+                    } else {
+                        fixedFlags.userFlags &= ~UserFlags.VerifiedBot;
+                    }
+
+                    continue;
+                }
+
+                if (value) {
+                    fixedFlags.applicationFlags |= this.flagsMap[key as keyof BotFlags];
+                } else {
+                    fixedFlags.applicationFlags &= ~this.flagsMap[key as keyof BotFlags];
+                }
+            }
+
             const bot = new Bot(this.ddanwm, {
                 bot: true,
                 avatar: defaultBot.avatar,
@@ -32,7 +66,9 @@ class Bots {
                 username: options?.username ?? defaultBot.username,
                 token: options?.token,
                 general: options?.general,
-                oauth2: options?.oauth2
+                oauth2: options?.oauth2,
+                userFlags: fixedFlags.userFlags,
+                applicationFlags: fixedFlags.applicationFlags,
             });
 
             this.bots.set(bot.id, bot);
@@ -44,7 +80,8 @@ class Bots {
                 bot.globalName,
                 bot.avatar,
                 bot.avatarDecoration,
-                bot.flags,
+                bot.applicationFlags.toJSON(),
+                bot.userFlags.toJSON(),
                 bot.tokens,
                 bot.general.bio,
                 bot.general.interactionUrl,

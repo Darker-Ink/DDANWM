@@ -37,6 +37,10 @@ export interface DDANWMOptions {
      */
     defaultApiVersion: apiVersions;
     /**
+     * @description removes any warnings about missing endpoints / gateway events
+     */
+    noWarnings?: boolean;
+    /**
      * @description If we don't log anything to the console
      */
     silent?: boolean;
@@ -60,7 +64,7 @@ export const logColors: Record<logTypes | "date", string> = {
     date: "4fbd00"
 }
 
-interface RouteType {
+export interface RouteType {
     default: Route;
     directory: string;
     path: string;
@@ -70,7 +74,7 @@ interface RouteType {
     versionlessRoute: string;
 }
 
-interface WsEventType {
+export interface WsEventType {
     default: Event;
     directory: string;
     type: "wsEvent";

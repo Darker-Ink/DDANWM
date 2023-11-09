@@ -1,21 +1,23 @@
-export interface BotFlags {
-    guildMembersGateway: boolean;
+import type User from "../../../Structures/User.js";
+
+export interface BotFlags<T = boolean> {
+    guildMembersGateway: T;
     /**
      * @description If the bot should have the auto moderation rule create badge
      */
-    hasAutoMod: boolean;
+    hasAutoMod: T;
     /**
      * @description If the bot has the slash commands badge
      */
-    hasSlashCommands: boolean;
+    hasSlashCommands: T;
     /**
      * @deprecated You should instead add an interaction URL to your create bot options
      * @description If the bot is HTTP interaction based and doesn't connect to the gateway (for presence stuff)
      */
-    interactionBased: boolean;
-    messageContentGateway: boolean;
-    presenceGateway: boolean;
-    verified: boolean;
+    interactionBased: T;
+    messageContentGateway: T;
+    presenceGateway: T;
+    verified: T;
 }
 
 export interface OAuth2Options {
@@ -55,7 +57,7 @@ export interface CreateBotOptions {
     flags: Partial<BotFlags>;
     general?: Partial<GeneralBotOptions>;
     oauth2?: Partial<OAuth2Options>;
-    owner: never;
+    owner: User;
     /**
      * @descript The token to use for the bot, if this is null we'll generate a random token
      */

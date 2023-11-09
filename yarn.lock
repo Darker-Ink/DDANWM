@@ -1772,6 +1772,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bitflag-js@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "bitflag-js@npm:1.0.0"
+  checksum: 2400801200957e7d31c5ee18e73f2dda0c0acf0ec514663b587e2a6372ed0650bbfe32d901ceff48d4ddda6d8eba521c1fa9351276330f0ee96009d281c1ae6a
+  languageName: node
+  linkType: hard
+
 "body-parser@npm:1.20.1":
   version: 1.20.1
   resolution: "body-parser@npm:1.20.1"
@@ -2236,6 +2243,7 @@ __metadata:
     chalk: ^5.3.0
     cors: ^2.8.5
     discord-api-types: ^0.37.62
+    discord-bitflag: ^1.0.0
     discord.js: ^14.13.0
     eslint: ^8.52.0
     eslint-config-neon: ^0.1.57
@@ -2417,6 +2425,15 @@ __metadata:
   version: 0.37.62
   resolution: "discord-api-types@npm:0.37.62"
   checksum: 1d9aafab1ad29f9951f039de7e4e8ee48c766775068abad0730e576298b8b4da52572eb0e56802b16f04f24116c957072646e75c7953db8928e6fbedd9047cc5
+  languageName: node
+  linkType: hard
+
+"discord-bitflag@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "discord-bitflag@npm:1.0.0"
+  dependencies:
+    bitflag-js: ^1.0.0
+  checksum: eb1cee8cd0b4f441c63eb05ee2060a713f0aa9d44de99531de10301a79b76c6bb2fd8ae7f7e8a5d9b74d074d01dba24f46ec644e015402bbd0f88d1027fcc461
   languageName: node
   linkType: hard
 

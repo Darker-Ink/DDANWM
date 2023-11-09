@@ -10,6 +10,8 @@ export default class Resume extends Event {
         super(ddanwm)
 
         this.op = GatewayOpcodes.Resume;
+
+        this.authRequired = false;
     }
 
     public override async handleRequest(ws: WsUser, data: RecursivePartial<GatewayResumeData>): Promise<void> {

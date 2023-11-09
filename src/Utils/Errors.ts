@@ -1,6 +1,4 @@
 import { GatewayCloseCodes as CloseCodesv10 } from "discord-api-types/gateway/v10"
-import { GatewayCloseCodes as CloseCodesv9 } from "discord-api-types/gateway/v9"
-import type { apiVersions } from "../Types/Misc/DDANWM.type.js";
 
 export const Errors = {
     /**
@@ -36,8 +34,8 @@ export const Errors = {
 };
 
 export const WsErrors = {
-    authenticationFailed: (version: apiVersions = "v10") => ({
-        code: version === "v10" ? CloseCodesv10.AuthenticationFailed : CloseCodesv9.AuthenticationFailed,
+    authenticationFailed: () => ({
+        code: CloseCodesv10.AuthenticationFailed,
         response: "Authentication failed."
     }),
     nolongerSupported: () => ({
@@ -55,5 +53,13 @@ export const WsErrors = {
     unknownOpCode: () => ({
         code: CloseCodesv10.UnknownOpcode,
         response: "Unknown opcode."
+    }),
+    disallowedIntents: () => ({
+        code: CloseCodesv10.DisallowedIntents,
+        response: "Disallowed intent(s)."
+    }),
+    invalidIntents: () => ({
+        code: CloseCodesv10.InvalidIntents,
+        response: "Invalid intent(s)."
     }),
 }

@@ -4,12 +4,12 @@ import { join } from "node:path";
 import chalk from "chalk";
 import API from "../API/API.js";
 import RouteBuilder from "../API/Route.js";
+import { Tables, type TableColumns } from "../Constants/Tables.js";
 import { logColors } from "../Types/Misc/DDANWM.type.js";
 import type { DDANWMFile, DDANWMOptions, logTypes } from "../Types/Misc/DDANWM.type.js";
 import Database from "../Utils/Database.js";
 import Event from "../WebSocket/Event.js";
 import WS from "../WebSocket/Ws.js";
-import { Tables, type TableColumns } from "../constants/Tables.js";
 import Bots from "./Helpers/Bots.helper.js";
 
 interface DDANWM {
@@ -63,6 +63,8 @@ class DDANWM extends EventEmitter {
         this.emit("log", type, ...message); // we also emit the log event
 
         if (!this.shouldLog) return;
+
+        if (type === "debug" && !this.options.debug?.ddanwm?.logs) return;
 
         const logColor = logColors[type];
         const longestLogType = Object.keys(logColors).reduce((a, b) => a.length > b.length ? a : b);

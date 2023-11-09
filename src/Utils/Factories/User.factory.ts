@@ -1,5 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { UserFlags } from "../../constants/Flags.js";
+import { UserFlags } from "../../Constants/Flags.js";
+import { avatarAndBannerHash } from "../Hashes.js";
+import { generateBetween } from "../Snowflake.js";
 
 export const Flags: Record<string, { value: number, weight: number }> = {
     Staff: {
@@ -71,5 +73,24 @@ export const generateFlags = (): number => {
     return flags;
 }
 
-export const generateUser = () => {
+export const generateUser = (avatar?: boolean) => {
+
+    // 93% chance of not having a discriminator:
+    // reason: Based off the members of discord api, out of 55k members 50k of them don't have a discriminator and instead use the new username system
+    // for that reason thats the % chance we are going based off this, this may be tweakable in the future
+    const discriminator = faker.number.float({ min: 0, max: 1 }) > 0.93 ? faker.number.int({ min: 1, max: 9_999 }).toString().padStart(4, "0") : null;
+
+    // now if the discriminator is null, we go based off these rules for the username:
+    // Permitted characters for new usernames: Latin characters (a-z), Numbers (0-9), Certain special characters (_ and .)
+    const username = discriminator ? faker.internet.userName() : faker.internet.userName().replaceAll(/[^\w.]/g, "");
+
+    return {
+        username,
+        id: generateBetween(1_441_765_848_298, Date.now()),
+        avatar: avatar ? avatarAndBannerHash() : faker.number.float({ min: 0, max: 1 }) > 0.33 ? avatarAndBannerHash() : null,
+        global_name: faker.number.float({ min: 0, max: 1 }) > 0.88 ? faker.internet.displayName() : null,
+        avatar_decoration: faker.number.float({ min: 0, max: 1 }) > 0.88 ? avatarAndBannerHash() : null,
+        discriminator: discriminator ?? "0000",
+        flags: generateFlags()
+    }
 }

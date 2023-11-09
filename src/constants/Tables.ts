@@ -28,6 +28,10 @@ export const Tables = [
                 type: "string"
             },
             {
+                name: "application_flags",
+                type: "number"
+            },
+            {
                 name: "flags",
                 type: "number"
             },

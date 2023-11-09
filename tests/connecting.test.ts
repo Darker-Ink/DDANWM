@@ -17,6 +17,12 @@ const start = async () => {
         debug: {
             api: {
                 raw: true
+            },
+            ws: {
+                raw: false
+            },
+            ddanwm: {
+                logs: true
             }
         }
     });
@@ -36,6 +42,10 @@ const start = async () => {
 
     client.on("ready", () => {
         mocker.log("info", `Using Discord.js ${client.user?.username} has connected to the mocker!`);
+
+        // client.guilds.create({
+        //     name: "Testing"
+        // });
     });
 
     client.login(bot.tokens[0]);

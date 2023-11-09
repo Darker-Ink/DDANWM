@@ -1,7 +1,9 @@
+import { ApplicationFlagsBitField, UserFlagsBitField } from "discord-bitflag";
 import type DDANWM from "../DDANWM/DDANWM";
 import type { GeneralBotOptions, OAuth2Options } from "../Types/Misc/Helpers/Bots.type.js";
 import type { BotCreateOptions } from "../Types/Misc/Structures/Bot.type";
 import { generateBot } from "../Utils/Factories/Bot.factory.js";
+import { clientSecret } from "../Utils/Hashes.js";
 import { generateToken } from "../Utils/Token.js";
 
 class Bot {
@@ -11,7 +13,9 @@ class Bot {
 
     public discriminator: string;
 
-    public flags: number;
+    public applicationFlags: ApplicationFlagsBitField;
+
+    public userFlags: UserFlagsBitField;
 
     public globalName: string | null;
 
@@ -39,7 +43,9 @@ class Bot {
 
         this.discriminator = options?.discriminator ?? defaultBot.discriminator;
 
-        this.flags = options?.flags ?? defaultBot.flags;
+        this.applicationFlags = new ApplicationFlagsBitField(options?.applicationFlags ?? defaultBot.applicationFlags);
+
+        this.userFlags = new UserFlagsBitField(options?.userFlags ?? defaultBot.userFlags);
 
         this.globalName = options?.global_name ?? defaultBot.global_name;
 
@@ -60,7 +66,7 @@ class Bot {
         this.oauth2 = options?.oauth2 ?? {
             redirectUris: [],
             clientId: this.id,
-            clientSecret: generateToken(this.id), // darkerink: for now just default to a newly generated token, later though we will generate real client secrets which match discord's
+            clientSecret: clientSecret(),
         };
 
         this.ddanwm.bots.create(this);

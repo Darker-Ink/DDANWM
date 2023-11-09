@@ -14,8 +14,8 @@ class Event {
         this.op = 0;
     }
 
-    public async handleRequest(ws: WsUser, data: any) {
-        if (ws || data) {
+    public async handleRequest(ws: WsUser, data: any, rawMessage?: unknown) {
+        if (ws || data || rawMessage) {
 
         }
 

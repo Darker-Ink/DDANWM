@@ -23,6 +23,16 @@ class API {
 
         this.app = express();
 
+        this.app.use(express.json({
+            limit: "50mb"
+        }))
+
+        this.app.use(express.urlencoded({
+            limit: "50mb",
+            extended: true,
+            parameterLimit: 25
+        }))
+
         this.defaultMiddleware = [Authentication(this.ddanwm, {
             type: "required"
         }), RateLimit(this.ddanwm, {
@@ -88,8 +98,10 @@ class API {
             });
         }
 
-        this.app.all("*", (_, res) => {
+        this.app.all("*", (req, res) => {
             const notfound = Errors.notFound();
+
+            if (!this.ddanwm.options.noWarnings) this.ddanwm.log("warn", "Possible missing endpoint, Please create a github issue if this is an actual endpoint bots can access, output:", req.method, req.url, JSON.stringify(req.body, null, 4), JSON.stringify(req.headers, null, 4));
 
             res.status(notfound.code).send(notfound.response);
         });
