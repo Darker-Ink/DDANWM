@@ -68,6 +68,64 @@ export const Tables = [
                 type: "string"
             }
         ]
+    },
+    {
+        name: "users",
+        columns: [
+            {
+                name: "id",
+                primary: true,
+                type: "bigint"
+            },
+            {
+                name: "username",
+                type: "string"
+            },
+            {
+                name: "discriminator",
+                type: "string"
+            },
+            {
+                name: "avatar",
+                type: "string"
+            },
+            {
+                name: "avatar_decoration",
+                type: "string"
+            },
+            {
+                name: "flags",
+                type: "number"
+            },
+            {
+                name: "locale",
+                type: "string"
+            },
+            {
+                name: "email",
+                type: "string"
+            },
+            {
+                name: "verified",
+                type: "boolean"
+            },
+            {
+                name: "mfa_enabled",
+                type: "boolean"
+            },
+            {
+                name: "system", // You should not mess with this, internally we have a single system user. When need be as well we may make "Server" users for when publishing messages are made
+                type: "boolean"
+            },
+            {
+                name: "banner",
+                type: "string"
+            },
+            {
+                name: "accent_color",
+                type: "number"
+            }
+        ]
     }
 ] as const;
 

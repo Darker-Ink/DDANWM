@@ -22,16 +22,21 @@ const start = async () => {
                 raw: false
             },
             ddanwm: {
-                logs: true
+                logs: true,
+
             }
         }
     });
 
     await mocker.start();
 
-    const bot = mocker.bots.create();
+    const user = mocker.users.create();
+    const bot = mocker.bots.create({
+        owner: user
+    });
 
-    mocker.log("info", `Created Bot (${bot.username} - ${bot.id}), token: ${bot.tokens[0]}`);
+
+    mocker.log("info", `Created Bot (${bot.username} - ${bot.id}), token: ${bot.tokens[0]}, owner: ${bot.owner.username}#${bot.owner.discriminator} - ${bot.owner.id}`);
 
     const client = new Client({
         intents: [],
@@ -41,11 +46,7 @@ const start = async () => {
     });
 
     client.on("ready", () => {
-        mocker.log("info", `Using Discord.js ${client.user?.username} has connected to the mocker!`);
-
-        // client.guilds.create({
-        //     name: "Testing"
-        // });
+        mocker.log("info", `Using Discord.js ${client.user?.tag} has connected to the mocker!`);
     });
 
     client.login(bot.tokens[0]);

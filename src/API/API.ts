@@ -34,7 +34,8 @@ class API {
         }))
 
         this.defaultMiddleware = [Authentication(this.ddanwm, {
-            type: "required"
+            type: "required",
+            authTypesAllowed: ["bot"]
         }), RateLimit(this.ddanwm, {
             id: "global",
             max: 10_000,

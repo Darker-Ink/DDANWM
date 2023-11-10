@@ -35,6 +35,7 @@ class Bots {
             return options;
         } else {
             const defaultBot = generateBot(options?.avatar);
+            const owner = options?.owner ?? this.ddanwm.users.create();
 
             const fixedFlags = {
                 applicationFlags: defaultBot.applicationFlags,
@@ -69,6 +70,7 @@ class Bots {
                 oauth2: options?.oauth2,
                 userFlags: fixedFlags.userFlags,
                 applicationFlags: fixedFlags.applicationFlags,
+                owner
             });
 
             this.bots.set(bot.id, bot);

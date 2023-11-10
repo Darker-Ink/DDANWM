@@ -181,6 +181,11 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         return this.database[this.nameFix(name)];
     }
 
+    /**
+     * @description Creates a row in a table
+     * @param tableName The name of the table to create the row in
+     * @param data The data to create, in the near future I would like this to be typed better, so if the tbale has a [string, string, number] type, then it would be [string, string, number] and not any[]
+     */
     public create<Z extends T[number]["name"] = "", D extends Record<string, any> = {}>(tableName: Z, data: any[]): D | null {
         if (["__proto__", "constructor", "prototype"].includes(tableName)) return null; // This protects against prototype pollution
 

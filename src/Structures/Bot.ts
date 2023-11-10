@@ -5,6 +5,7 @@ import type { BotCreateOptions } from "../Types/Misc/Structures/Bot.type";
 import { generateBot } from "../Utils/Factories/Bot.factory.js";
 import { clientSecret } from "../Utils/Hashes.js";
 import { generateToken } from "../Utils/Token.js";
+import User from "./User.js";
 
 class Bot {
     public avatar: string | null;
@@ -30,6 +31,8 @@ class Bot {
     public tokens: string[];
 
     protected readonly ddanwm: DDANWM;
+
+    public owner: User;
 
     public constructor(ddanwm: DDANWM, options?: BotCreateOptions) {
 
@@ -68,6 +71,8 @@ class Bot {
             clientId: this.id,
             clientSecret: clientSecret(),
         };
+
+        this.owner = options?.owner ?? new User(this.ddanwm);
 
         this.ddanwm.bots.create(this);
     }

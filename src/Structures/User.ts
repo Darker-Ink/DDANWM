@@ -20,6 +20,20 @@ class User {
 
     protected readonly ddanwm: DDANWM;
 
+    public locale: string;
+
+    public email: string;
+
+    public verified: boolean;
+
+    public mfaEnabled: boolean;
+
+    public system: boolean;
+
+    public banner: string | null;
+
+    public accentColor: number;
+
     public constructor(ddanwm: DDANWM, options?: UserCreateOptions) {
         this.ddanwm = ddanwm;
 
@@ -27,17 +41,31 @@ class User {
 
         this.avatar = options?.avatar ?? defaultUser.avatar;
 
-        this.avatarDecoration = options?.avatar_decoration ?? defaultUser.avatar_decoration;
+        this.avatarDecoration = options?.avatarDecoration ?? defaultUser.avatarDecoration;
 
         this.discriminator = options?.discriminator ?? defaultUser.discriminator;
 
         this.flags = new UserFlagsBitField(options?.flags ?? defaultUser.flags);
 
-        this.globalName = options?.global_name ?? defaultUser.global_name;
+        this.globalName = options?.globalName ?? defaultUser.globalName;
 
         this.id = options?.id ?? defaultUser.id;
 
         this.username = options?.username ?? defaultUser.username;
+
+        this.locale = options?.locale ?? defaultUser.locale;
+
+        this.email = options?.email ?? defaultUser.email;
+
+        this.verified = options?.verified ?? defaultUser.verified;
+
+        this.mfaEnabled = options?.mfaEnabled ?? defaultUser.mfaEnabled;
+
+        this.system = options?.system ?? defaultUser.system;
+
+        this.banner = options?.banner ?? defaultUser.banner;
+
+        this.accentColor = options?.accentColor ?? defaultUser.accentColor;
     }
 }
 

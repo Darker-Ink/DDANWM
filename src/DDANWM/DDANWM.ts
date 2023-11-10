@@ -11,6 +11,10 @@ import Database from "../Utils/Database.js";
 import Event from "../WebSocket/Event.js";
 import WS from "../WebSocket/Ws.js";
 import Bots from "./Helpers/Bots.helper.js";
+import Channels from "./Helpers/Channels.helper.js";
+import Guilds from "./Helpers/Guilds.helper.js";
+import Invites from "./Helpers/Invites.helper.js";
+import Users from "./Helpers/Users.helper.js";
 
 interface DDANWM {
     emit(event: "log", type: logTypes, ...message: (bigint | boolean | number | string)[]): boolean;
@@ -27,6 +31,14 @@ class DDANWM extends EventEmitter {
     public readonly ws: WS;
 
     public bots: Bots = new Bots(this);
+
+    public users: Users = new Users(this);
+
+    public guilds: Guilds = new Guilds(this);
+
+    public invites: Invites = new Invites(this);
+
+    public channels: Channels = new Channels(this);
 
     protected shouldLog: boolean = true;
 
@@ -55,7 +67,7 @@ class DDANWM extends EventEmitter {
         for (const table of Tables) {
             this.database.createTable(table.name, table.columns);
 
-            if (this.options.debug?.ddanwm?.logs) this.log("info", `Created table "${table.name}" with columns: ${table.columns.map((column) => column.name).join(", ")}`);
+            if (this.options.debug?.ddanwm?.tableLogs) this.log("info", `Created table "${table.name}" with columns: ${table.columns.map((column) => column.name).join(", ")}`);
         }
     }
 
@@ -76,6 +88,23 @@ class DDANWM extends EventEmitter {
     public async start() {
         this.log("info", "Started the API");
         this.log("info", "Started the WS");
+
+        const system = this.users.create({
+            username: "System",
+            flags: {
+                staff: true,
+                system: true
+            },
+            avatar: false,
+            avatarDecoration: false,
+            banner: false,
+            discriminator: "0000",
+            email: "system@internal.com",
+            locale: "en-US",
+            mfaEnabled: true
+        });
+
+        if (this.options.debug?.ddanwm?.logs) this.log("debug", `Created the system user - ${system.id}`);
 
         await this.api.start();
         await this.ws.start();

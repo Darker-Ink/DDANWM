@@ -22,7 +22,14 @@ export interface DDANWMOptions {
             responses?: boolean;
         },
         ddanwm?: {
+            /**
+             * @description If we should log any debug messages from DDANWM (This includes the API & WS)
+             */
             logs?: boolean;
+            /**
+             * @description If we should log the tables being created
+             */
+            tableLogs?: boolean;
         },
         ws?: {
             heartbeats?: boolean;

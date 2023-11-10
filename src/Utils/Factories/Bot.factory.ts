@@ -4,6 +4,9 @@ import { ApplicationFlags } from "../../Types/Misc/Structures/Bot.type.js";
 import { avatarAndBannerHash } from "../Hashes.js";
 import { generateBetween } from "../Snowflake.js";
 
+/**
+ * The flags bots (/applications) can have.
+ */
 export const BotFlagsAllowed = [
     ApplicationFlags.ApplicationAutoModerationRuleCreateBadge,
     ApplicationFlags.ApplicationCommandBadge,
@@ -12,11 +15,22 @@ export const BotFlagsAllowed = [
     ApplicationFlags.GatewayPresence
 ];
 
+/**
+ * The public flags bots can have (mainly the verified bot one is important)
+ */
 export const BotUserFlagsAllowed = [
     UserFlags.BotHTTPInteractions,
     UserFlags.VerifiedBot
 ]
 
+/**
+ * Generates a random list of flags for a bot
+ *
+ * @param botFlags If the flags should be BotUserFlagsAllowed or BotFlagsAllowed
+ * @param nonBot If we should include non bot flags (think the Staff badge etc)
+ * @param botVerified If the bot is verified and we should force the verified bot flag
+ * @returns The flags
+ */
 export const randomFlags = (botFlags: boolean = false, nonBot: boolean = false, botVerified: boolean = false): number => {
     let finalFlags = 0;
 
@@ -43,6 +57,12 @@ export const randomFlags = (botFlags: boolean = false, nonBot: boolean = false, 
     return finalFlags;
 }
 
+/**
+ * Just a simple function for generating the bare minimum of a bot
+ *
+ * @param avatar If the bot should have an avatar
+ * @returns
+ */
 export const generateBot = (avatar?: boolean): {
     applicationFlags: number;
     avatar: string | null;

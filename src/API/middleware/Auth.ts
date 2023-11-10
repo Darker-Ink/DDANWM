@@ -5,6 +5,7 @@ import { Errors } from "../../Utils/Errors.js";
 export const Authentication = (
     ddanwm: DDANWM,
     options: {
+        authTypesAllowed:  ("bot" | "oauth2" | "webhook")[],
         /**
          * The type of authentication that is required
          * `none` - The user does not need to be authenticated to access the route and the route will fail if the user is authenticated.
@@ -12,14 +13,14 @@ export const Authentication = (
          * `required` - The user must be authenticated to access the route.
          */
         type?: "none" | "optional" | "required"
-    }
-) => {
+    }) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         const authHeader = req.headers.authorization;
+        const botOrBearer = authHeader?.split(" ")[0] as "Bearer" | "Bot" | undefined;
 
         const error = Errors.unAuthorized();
 
-        if (!authHeader || !authHeader.startsWith("Bot ")) {
+        if (!authHeader || !botOrBearer) {
             if (options.type === "optional") {
                 next();
 
@@ -51,18 +52,24 @@ export const Authentication = (
             return;
         }
 
-        const foundBot = ddanwm.bots.checkAuthenticity(token);
+        if (botOrBearer === "Bot" && options.authTypesAllowed.includes("bot")) {
+            const foundBot = ddanwm.bots.checkAuthenticity(token);
 
-        if (!foundBot.valid || !foundBot.bot) {
-            ddanwm.log("debug", `API Request for ${req.url} (${req.method}) failed due to invalid token`)
+            if (!foundBot.valid || !foundBot.bot) {
+                ddanwm.log("debug", `API Request for ${req.url} (${req.method}) failed due to invalid token`)
 
-            res.status(error.code).send(error.response);
+                res.status(error.code).send(error.response);
+
+                return;
+            }
+
+            req.bot = foundBot.bot;
+
+            next();
 
             return;
         }
 
-        req.bot = foundBot.bot;
-
-        next();
+        ddanwm.log("debug", "Temporarily log here");
     }
 }
