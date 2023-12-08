@@ -1,6 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { UserFlags } from "../../Constants/Flags.js";
-import { ApplicationFlags } from "../../Types/Misc/Structures/Bot.type.js";
+import { ApplicationFlags, UserFlags } from "discord-bitflag";
 import { avatarAndBannerHash } from "../Hashes.js";
 import { generateBetween } from "../Snowflake.js";
 
@@ -19,7 +18,7 @@ export const BotFlagsAllowed = [
  * The public flags bots can have (mainly the verified bot one is important)
  */
 export const BotUserFlagsAllowed = [
-    UserFlags.BotHTTPInteractions,
+    UserFlags.BotHttpInteractions,
     UserFlags.VerifiedBot
 ]
 
@@ -31,8 +30,8 @@ export const BotUserFlagsAllowed = [
  * @param botVerified If the bot is verified and we should force the verified bot flag
  * @returns The flags
  */
-export const randomFlags = (botFlags: boolean = false, nonBot: boolean = false, botVerified: boolean = false): number => {
-    let finalFlags = 0;
+export const randomFlags = (botFlags: boolean = false, nonBot: boolean = false, botVerified: boolean = false): bigint => {
+    let finalFlags = 0n;
 
     for (const flag of botFlags ? BotUserFlagsAllowed : BotFlagsAllowed) {
         const float = faker.number.float({ min: 0, max: 0.5 });
@@ -64,7 +63,7 @@ export const randomFlags = (botFlags: boolean = false, nonBot: boolean = false, 
  * @returns
  */
 export const generateBot = (avatar?: boolean): {
-    applicationFlags: number;
+    applicationFlags: bigint;
     avatar: string | null;
     avatar_decoration: string | null;
     bio: string | null;
@@ -72,7 +71,7 @@ export const generateBot = (avatar?: boolean): {
     discriminator: string;
     global_name: string | null;
     id: string;
-    userFlags: number;
+    userFlags: bigint;
     username: string;
 } => {
     return {

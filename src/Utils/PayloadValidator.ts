@@ -51,3 +51,26 @@ export const payloadType = (payload: any): "json" | "unknown" | "zlib" => {
 
     return "unknown";
 }
+
+/**
+ * @description Checks if the item is a bigint
+ * @unstable
+ * @private
+ */
+export const isBigint = (item: unknown): boolean => {
+    const regex = /^\d+n$/;
+
+    if (typeof item !== "string") return false;
+
+    const tested = regex.test(item);
+
+    if (!tested) return false;
+
+    try {
+        const parsed = BigInt(item.slice(0, -1)); // Remove the n
+
+        return Boolean(parsed);
+    } catch {
+        return false;
+    }
+}

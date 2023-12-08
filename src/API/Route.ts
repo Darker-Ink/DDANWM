@@ -10,7 +10,7 @@ class Route {
     public middleware: ((req: Request, res: Response, next: NextFunction) => Promise<void> | void)[];
 
     public routes: {
-        contentType: ContentTypes | "none"  ;
+        contentType: ContentTypes | "none";
         handler(req: Request, res: Response, next?: NextFunction): void;
         method: Methods;
         path: string;

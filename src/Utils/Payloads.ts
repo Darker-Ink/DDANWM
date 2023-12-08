@@ -38,12 +38,12 @@ export const Payloads = {
                     username: ws.bot?.username ?? "Deleted User",
                     mfa_enabled: true,
                     id: ws.bot?.id,
-                    global_name: ws.bot?.globalName,
+                    global_name: ws.bot?.globalName ,
                     flags: ws.bot?.userFlags.toJSON() ?? 0,
                     email: null,
                     discriminator: ws.bot?.discriminator ?? "0000",
                     bot: true,
-                    avatar: ws.bot?.avatar
+                    avatar: ws.bot?.avatar ?? null,
                 },
                 session_type: "normal",
                 session_id: ws.sessionId,
@@ -57,7 +57,7 @@ export const Payloads = {
                 auth: {},
                 application: {
                     id: ws.bot?.id,
-                    flags: 557_056
+                    flags: ws.bot?.applicationFlags.toJSON()
                 },
                 _trace: []
             }

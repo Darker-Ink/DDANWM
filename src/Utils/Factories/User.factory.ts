@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { UserFlags } from "../../Constants/Flags.js";
+import { UserFlags } from "discord-bitflag";
 import { avatarAndBannerHash } from "../Hashes.js";
 import { generateBetween } from "../Snowflake.js";
 
@@ -20,31 +20,31 @@ export const Flags = {
         weight: 0.01 // 1% chance
     },
     Hypesquad: {
-        value: UserFlags.Hypesquad,
+        value: UserFlags.HypeSquad,
         weight: 0.05 // 5% chance
     },
     BugHunterLevel1: {
-        value: UserFlags.BugHunterLevel1,
+        value: UserFlags.BugHunterLevelOne,
         weight: 0.05 // 5% chance
     },
     HypeSquadOnlineHouse1: {
-        value: UserFlags.HypeSquadOnlineHouse1,
+        value: UserFlags.HouseBravery,
         weight: 0.6 // 60% chance
     },
     HypeSquadOnlineHouse2: {
-        value: UserFlags.HypeSquadOnlineHouse2,
+        value: UserFlags.HouseBalance,
         weight: 0.6 // 60% chance
     },
     HypeSquadOnlineHouse3: {
-        value: UserFlags.HypeSquadOnlineHouse3,
+        value: UserFlags.HouseBrilliance,
         weight: 0.4 // 40% chance
     },
     PremiumEarlySupporter: {
-        value: UserFlags.PremiumEarlySupporter,
+        value: UserFlags.EarlyNitroSupporter,
         weight: 0.15 // 15% chance
     },
     BugHunterLevel2: {
-        value: UserFlags.BugHunterLevel2,
+        value: UserFlags.BugHunterLevelTwo,
         weight: 0.02 // 2% chance
     },
     VerifiedDeveloper: {
@@ -59,18 +59,18 @@ export const Flags = {
         value: UserFlags.ActiveDeveloper,
         weight: 0.6 // 60% chance
     }
-} satisfies Record<string, { value: number, weight: number }>;
+} satisfies Record<string, { value: bigint, weight: number }>;
 
-export const generateFlags = (): number => {
-    let flags = 0;
+export const generateFlags = (): bigint => {
+    let flags = 0n;
 
     for (const [, value] of Object.entries(Flags)) {
         const float = faker.number.float({ min: 0, max: 1 });
 
         // if it already has a house flag, don't add another one (since you can only really have one)
-        if (value.value === UserFlags.HypeSquadOnlineHouse1 && (flags & UserFlags.HypeSquadOnlineHouse1)) continue;
-        if (value.value === UserFlags.HypeSquadOnlineHouse2 && (flags & UserFlags.HypeSquadOnlineHouse2)) continue;
-        if (value.value === UserFlags.HypeSquadOnlineHouse3 && (flags & UserFlags.HypeSquadOnlineHouse3)) continue;
+        if (value.value === UserFlags.HouseBalance && (flags & UserFlags.HouseBalance)) continue;
+        if (value.value === UserFlags.HouseBravery && (flags & UserFlags.HouseBravery)) continue;
+        if (value.value === UserFlags.HouseBrilliance && (flags & UserFlags.HouseBrilliance)) continue;
 
         if (float < value.weight) {
             flags |= value.value;

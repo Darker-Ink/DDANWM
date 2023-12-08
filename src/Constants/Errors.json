@@ -1,0 +1,2587 @@
+[
+    {
+        "group": "Miscellaneous",
+        "code": "0",
+        "message": "General error (such as a malformed request body, amongst other things)"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10001",
+        "message": "Unknown Account"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10002",
+        "message": "Unknown Application"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10003",
+        "message": "Unknown Channel"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10004",
+        "message": "Unknown Guild"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10005",
+        "message": "Unknown Integration"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10006",
+        "message": "Unknown Invite"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10007",
+        "message": "Unknown Member"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10008",
+        "message": "Unknown Message"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10009",
+        "message": "Unknown Permission Overwrite"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10010",
+        "message": "Unknown Provider"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10011",
+        "message": "Unknown Role"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10012",
+        "message": "Unknown Token"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10013",
+        "message": "Unknown User"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10014",
+        "message": "Unknown Emoji"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10015",
+        "message": "Unknown Webhook"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10016",
+        "message": "Unknown Webhook Service"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10017",
+        "message": "Unknown Connection"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10020",
+        "message": "Unknown Session"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10021",
+        "message": "Unknown Asset"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10023",
+        "message": "Unknown approval form"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10026",
+        "message": "Unknown Ban"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10027",
+        "message": "Unknown SKU"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10028",
+        "message": "Unknown Store Listing"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10029",
+        "message": "Unknown Entitlement"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10030",
+        "message": "Unknown Build"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10031",
+        "message": "Unknown Lobby"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10032",
+        "message": "Unknown Branch"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10033",
+        "message": "Unknown Store Directory Layout"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10035",
+        "message": "Unknown Price Tier"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10036",
+        "message": "Unknown Redistributable"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10038",
+        "message": "Unknown Gift Code"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10039",
+        "message": "Unknown Team"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10040",
+        "message": "Unknown Team Member"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10042",
+        "message": "Unknown Manifest Labels"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10043",
+        "message": "Unknown achievement"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10044",
+        "message": "Unknown EULA"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10045",
+        "message": "Unknown Application News"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10046",
+        "message": "The channel is not associated with a sku"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10047",
+        "message": "Unknown Premium Guild Subscription"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10048",
+        "message": "Unknown Gift Code Batch"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10049",
+        "message": "Unknown Stream"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10050",
+        "message": "Unknown premium server subscribe cooldown"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10053",
+        "message": "Unknown Payout"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10055",
+        "message": "Unknown Premium Guild Subscription Slot"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10056",
+        "message": "Unknown remote authentication session"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10057",
+        "message": "Unknown server template"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10058",
+        "message": "Unknown user identity verification"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10059",
+        "message": "Unknown discoverable server category"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10060",
+        "message": "Unknown sticker"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10061",
+        "message": "Unknown sticker pack"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10062",
+        "message": "Unknown Interaction"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10063",
+        "message": "Unknown application command"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10064",
+        "message": "Unknown user trial offer"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10065",
+        "message": "Unknown Voice state"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10066",
+        "message": "Unknown application command permissions"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10067",
+        "message": "Unknown Stage Instance"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10068",
+        "message": "Unknown Guild Member Verification Form"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10069",
+        "message": "Unknown Guild Welcome Screen"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10070",
+        "message": "Unknown Guild Scheduled Event"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10071",
+        "message": "Unknown Guild Scheduled Event User"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10073",
+        "message": "Unknown Subscription Plan"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10075",
+        "message": "Unknown directory entry"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10076",
+        "message": "Unknown promotion"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10077",
+        "message": "Endpoint not available"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10083",
+        "message": "Unknown Server Role Subscription Settings"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10084",
+        "message": "Premium usage not available"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10085",
+        "message": "Unknown creator monetization enable request"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10087",
+        "message": "Unknown Tag"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10091",
+        "message": "Unknown Featured Item"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10093",
+        "message": "Unknown WebAuthn Authenticator"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10094",
+        "message": "Unknown User Code"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10095",
+        "message": "Unknown channel for new member action"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10096",
+        "message": "Unknown message attachment"
+    },
+    {
+        "group": "Unknown API object",
+        "code": "10102",
+        "message": "Unknown poll"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20001",
+        "message": "Bots cannot use this endpoint"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20002",
+        "message": "Only bots can use this endpoint"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20003",
+        "message": "RPC proxy disallowed"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20009",
+        "message": "Explicit content cannot be sent to the desired recipient(s)"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20011",
+        "message": "This account is scheduled for deletion"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20012",
+        "message": "You are not authorized to perform this action on this application"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20013",
+        "message": "This account is disabled"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20015",
+        "message": "This action requires a premium subscription"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20016",
+        "message": "This action cannot be performed due to slowmode rate limit"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20017",
+        "message": "The Maze isn't meant for you"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20018",
+        "message": "Only the owner of this account can perform this action"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20019",
+        "message": "You must accept the invitation to this team before you can perform this action"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20020",
+        "message": "The SKU is not available for purchase"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20021",
+        "message": "Friend list sync requires user to have verified phone"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20022",
+        "message": "This message cannot be edited due to announcement rate limits"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20023",
+        "message": "The specified local account provider is not recognized"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20024",
+        "message": "Under minimum age"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20026",
+        "message": "This bot has been flagged by our anti-spam system for abusive behavior pending review, and is currently unable to be added to any additional server"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20027",
+        "message": "This action can only be performed for approved store applications"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20028",
+        "message": "The write action you are performing on the channel has hit the write rate limit."
+    },
+    {
+        "group": "Restrictions",
+        "code": "20029",
+        "message": "The write action you are performing on the server has hit the write rate limit"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20031",
+        "message": "Your Stage topic, server name, server description, or channel names contain words that are not allowed"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20033",
+        "message": "This update is not allowed for this connection type"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20035",
+        "message": "Guild premium subscription level too low"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20037",
+        "message": "You must be friends with this user to perform this action"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20039",
+        "message": "This action cannot be performed because the team owns a verified application. Please contact support."
+    },
+    {
+        "group": "Restrictions",
+        "code": "20040",
+        "message": "This action cannot be performed because a vanity url is required for published guilds"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20042",
+        "message": "Invalid remote authentication ticket"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20044",
+        "message": "VANITY_URL_EMPLOYEE_ONLY_GUILD_DISABLED (UNKNOWN)"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20045",
+        "message": "This guild do not met requirements of using vanity url feature"
+    },
+    {
+        "group": "Restrictions",
+        "code": "20054",
+        "message": "New requirements can be added only when there are no members in the role"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30001",
+        "message": "Maximum number of guilds reached (100)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30002",
+        "message": "Maximum number of friends reached (1000)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30003",
+        "message": "Maximum number of pins reached for the channel (50)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30004",
+        "message": "Maximum number of recipients reached (10)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30005",
+        "message": "Maximum number of guild roles reached (250)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30006",
+        "message": "Too many users have this username, please try another"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30007",
+        "message": "Maximum number of webhooks reached (10)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30008",
+        "message": "Maximum number of emojis reached"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30009",
+        "message": "Maximum number of connections reached (50)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30010",
+        "message": "Maximum number of reactions reached (20)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30011",
+        "message": "Maximum number of group DMs reached (10)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30012",
+        "message": "Maximum number of whitelisted users reached (50)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30013",
+        "message": "Maximum number of guild channels reached (500)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30015",
+        "message": "Maximum number of attachments in a message reached (10)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30016",
+        "message": "Maximum number of invites reached (1000)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30017",
+        "message": "Maximum number of application assets reached (300)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30018",
+        "message": "Maximum number of animated emojis reached"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30019",
+        "message": "Maximum number of server members reached"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30021",
+        "message": "Maximum number of game SKUs per application reached (1)."
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30022",
+        "message": "Maximum number of gifts has been reached for this SKU."
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30023",
+        "message": "Maximum number of teams reached (30)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30025",
+        "message": "Maximum number of companies reached (20)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30026",
+        "message": "Maximum number of premium server subscriptions reached"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30029",
+        "message": "NOT_ENOUGH_GUILD_MEMBERS (UNKNOWN)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30030",
+        "message": "Maximum number of server categories has been reached (5)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30031",
+        "message": "Guild already has a template"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30032",
+        "message": "Maximum number of application commands reached"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30033",
+        "message": "Max number of thread participants has been reached (1000)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30034",
+        "message": "Max number of daily application command creates has been reached (200)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30035",
+        "message": "Maximum number of bans for non-guild members have been exceeded"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30037",
+        "message": "Maximum number of bans fetches has been reached"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30038",
+        "message": "Maximum number of uncompleted guild scheduled events reached (100)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30039",
+        "message": "Maximum number of stickers reached"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30040",
+        "message": "Maximum number of prune requests has been reached. Try again later"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30041",
+        "message": "Max number of entries in directory channel reached (500)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30042",
+        "message": "Maximum number of guild widget settings updates has been reached. Try again later"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30043",
+        "message": "Maximum number of published tiers reached (3)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30045",
+        "message": "Maximum number of soundboard sounds reached 36"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30046",
+        "message": "Maximum number of edits to messages older than 1 hour reached. Try again later"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30047",
+        "message": "Maximum number of pinned threads in a forum channel has been reached"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30048",
+        "message": "Maximum number of tags in a forum channel has been reached"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30052",
+        "message": "Bitrate is too high for channel of this type"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30053",
+        "message": "Maximum total size of attachments reached 500MB."
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30054",
+        "message": "Maximum number of published application subscriptions reached (1)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30056",
+        "message": "Maximum number of premium emojis reached (25)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30058",
+        "message": "Maximum number of webhooks per guild reached (1000)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30059",
+        "message": "Maximum number of blocked users reached (5000)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30060",
+        "message": "Maximum number of channel permission overwrites reached (1000)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30061",
+        "message": "The channels for this guild are too large"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30063",
+        "message": "Maximum number of application subscription SKUs reached (20)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "30065",
+        "message": "Maximum number of published products reached (10)"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "31001",
+        "message": "You are being rate limited"
+    },
+    {
+        "group": "Resource limitations",
+        "code": "31002",
+        "message": "The resource is being rate limited"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40001",
+        "message": "Unauthorized"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40002",
+        "message": "You need to verify your account in order to perform this action"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40003",
+        "message": "You are opening direct messages too fast"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40004",
+        "message": "Send message has been temporarily disabled."
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40005",
+        "message": "Request entity too large"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40006",
+        "message": "This feature has been temporarily disabled server-side"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40007",
+        "message": "The user is banned from this guild"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40010",
+        "message": "You already have a verified phone"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40011",
+        "message": "You must transfer ownership of any owned guilds before deleting your account"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40012",
+        "message": "The connection has been revoked"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40014",
+        "message": "Activity expired"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40015",
+        "message": "You must transfer ownership of any owned guilds before disabling your account"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40016",
+        "message": "Service is currently unavailable."
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40024",
+        "message": "Team member already exists"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40025",
+        "message": "Team owner cannot be deleted"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40026",
+        "message": "All team members must have a verified email address"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40027",
+        "message": "You are already a member of this team"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40028",
+        "message": "You must transfer ownership of any owned teams before deleting your account"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40029",
+        "message": "A company with that name already exists"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40032",
+        "message": "Target user is not connected to voice."
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40033",
+        "message": "This message has already been crossposted"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40034",
+        "message": "User has disabled contact sync"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40035",
+        "message": "USER_INDENTITY_VRRIFICATION_PROCESSING (UNKNOWN)"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40036",
+        "message": "User identity verification already succeeded"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40037",
+        "message": "Application verification ineligible"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40038",
+        "message": "Application verification already submitted"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40039",
+        "message": "Application verification already approved"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40041",
+        "message": "An application command with that name already exists"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40043",
+        "message": "Application interaction failed to send"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40044",
+        "message": "Entry already exists in this directory channel"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40053",
+        "message": "Application must be verified to request intents"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40054",
+        "message": "Recommendations not available"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40058",
+        "message": "Cannot message this thread until after the post author has sent an initial message"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40060",
+        "message": "Interaction has already been acknowledged"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40061",
+        "message": "Tag names must be unique"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40062",
+        "message": "Service resource is being rate limited."
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40064",
+        "message": "The application needs to be verified"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40066",
+        "message": "There are no tags available that can be set by non-moderators"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40067",
+        "message": "A tag is required to create a forum post in this channel"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40068",
+        "message": "USER_QUARANTINE (UNKNOWN)"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40069",
+        "message": "Invites are currently paused for this server. Please try again later."
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40075",
+        "message": "New member action already completed"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40081",
+        "message": "Invalid recipient for friend invite"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40082",
+        "message": "Invalid code for friend invite"
+    },
+    {
+        "group": "Disallowed actions",
+        "code": "40333",
+        "message": "internal network error"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50001",
+        "message": "Missing access"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50002",
+        "message": "Invalid account type"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50003",
+        "message": "Cannot execute action on a DM channel"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50004",
+        "message": "Guild widget disabled"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50005",
+        "message": "Cannot edit a message authored by another user"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50006",
+        "message": "Cannot send an empty message"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50007",
+        "message": "Cannot send messages to this user"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50008",
+        "message": "Cannot send messages in a non-text channel"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50009",
+        "message": "Channel verification level is too high for you to gain access"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50010",
+        "message": "OAuth2 application does not have a bot"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50011",
+        "message": "OAuth2 application limit reached"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50012",
+        "message": "Invalid OAuth2 state"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50013",
+        "message": "You lack permissions to perform that action"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50014",
+        "message": "Invalid authentication token provided"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50015",
+        "message": "Note was too long"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50016",
+        "message": "Provided too few or too many messages to delete. Must provide at least 2 and fewer than 100 messages to delete."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50017",
+        "message": "Invalid MFA Level"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50018",
+        "message": "Password does not match"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50019",
+        "message": "A message can only be pinned to the channel it was sent in"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50020",
+        "message": "Invite code was either invalid or taken"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50021",
+        "message": "Cannot execute action on a system message"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50022",
+        "message": "Invalid phone number"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50023",
+        "message": "Invalid Client ID"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50024",
+        "message": "Cannot execute action on this channel type"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50025",
+        "message": "Invalid OAuth2 access token"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50026",
+        "message": "Missing required OAuth2 scope"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50027",
+        "message": "Invalid webhook token provided"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50028",
+        "message": "Invalid role"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50029",
+        "message": "Users without verified emails cannot be added to the application whitelist"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50030",
+        "message": "You cannot invite yourself to the application whitelist"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50031",
+        "message": "You cannot invite a user who was already whitelisted, or is already a member"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50033",
+        "message": "Invalid Recipient(s)"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50034",
+        "message": "A message provided was too old to bulk delete"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50035",
+        "message": "Invalid Form Body"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50036",
+        "message": "An invite was accepted to a guild the application's bot is not in"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50037",
+        "message": "Verification code is invalid"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50038",
+        "message": "You cannot perform this action on yourself"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50039",
+        "message": "Invalid Activity Action"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50040",
+        "message": "Invalid OAuth2 redirect_uri"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50041",
+        "message": "Invalid API version provided"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50042",
+        "message": "Invalid Billing State"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50043",
+        "message": "Data Harvest is pending, another Data Harvest cannot be started"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50044",
+        "message": "Data Harvest can only be requested every 30 days"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50045",
+        "message": "File uploaded exceeds the maximum size"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50046",
+        "message": "Invalid Asset"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50048",
+        "message": "Invalid Payment Source"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50050",
+        "message": "This gift has been redeemed already."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50054",
+        "message": "Cannot self-redeem this gift"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50055",
+        "message": "Invalid Guild"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50056",
+        "message": "Cannot delete asset that is currently in use on a store page"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50057",
+        "message": "Invalid SKU"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50060",
+        "message": "Invalid application store state"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50064",
+        "message": "Cannot unsubscribe from a server again"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50067",
+        "message": "Invalid request origin"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50068",
+        "message": "Invalid message type"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50069",
+        "message": "Must wait for premium server subscription cooldown to expire"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50070",
+        "message": "Payment source required to redeem gift"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50071",
+        "message": "New subscription required to redeem gift"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50073",
+        "message": "Cannot modify a system webhook"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50074",
+        "message": "Cannot delete a channel required for Community guilds"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50080",
+        "message": "Cannot edit stickers within a message"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50081",
+        "message": "Invalid sticker sent"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50083",
+        "message": "Tried to perform an operation on an archived thread, such as editing a message or adding a user to the thread"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50084",
+        "message": "Invalid thread notification settings"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50085",
+        "message": "`before` value is earlier than the thread creation date"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50086",
+        "message": "Community server channels must be text channels"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50091",
+        "message": "The entity type of the event is different from the entity you are trying to start the event for"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50092",
+        "message": "You have already owned this SKU"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50094",
+        "message": "Invalid directory entry type"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50095",
+        "message": "This server is not available in your location"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50096",
+        "message": "Cannot accept your own friend invite"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50097",
+        "message": "This server needs monetization enabled in order to perform this action"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50099",
+        "message": "This entity can only be edited through the server settings UI"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50101",
+        "message": "This server needs more boosts to perform this action"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50102",
+        "message": "Cannot update price tier on a published role listing"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50104",
+        "message": "Malformed user settings payload"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50105",
+        "message": "User Settings failed validation: <validation error>"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50106",
+        "message": "You do not have access to the requested activity"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50107",
+        "message": "This server needs more boosts to launch this activity"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50108",
+        "message": "INVALID_ACTIVITY_LAUNCH_CONCURRENT_ACTIVITIES"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50109",
+        "message": "The request body contains invalid JSON"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50111",
+        "message": "Invalid guild join request application status query"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50112",
+        "message": "Cannot delete a subscription group that has listings"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50113",
+        "message": "Cannot create more than 1 subscription group"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50119",
+        "message": "This guild is not allowed to use monetization features"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50121",
+        "message": "This server is not eligible to request monetization"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50123",
+        "message": "The provided file type is invalid."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50124",
+        "message": "The provided file duration exceeds maximum of 5 seconds."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50129",
+        "message": "You must have Nitro to launch this activity"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50131",
+        "message": "Owner cannot be pending member"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50132",
+        "message": "Ownership cannot be transferred to a bot user"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50133",
+        "message": "User is already owner"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50136",
+        "message": "User does not have access to private channel."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50138",
+        "message": "Failed to resize asset below the maximum size: 262144"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50139",
+        "message": "User could not be found."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50140",
+        "message": "User is not staff"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50144",
+        "message": "Cannot mix subscription and non subscription roles for an emoji"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50145",
+        "message": "Cannot convert between premium emoji and normal emoji"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50146",
+        "message": "Uploaded file not found"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50147",
+        "message": "Invalid Connection"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50148",
+        "message": "Cannot launch Activity in AFK Channel"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50150",
+        "message": "Invalid Role Configuration"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50151",
+        "message": "The specified emoji is invalid"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50152",
+        "message": "This server is not eligible for store pages"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50155",
+        "message": "This server is not allowed to create an enable request"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50157",
+        "message": "Cannot delete a subscription listing with subscriptions"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50158",
+        "message": "Onboarding responses are not valid"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50159",
+        "message": "Voice messages do not support additional content"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50160",
+        "message": "Voice messages must have a single audio attachment"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50161",
+        "message": "Voice messages must have supporting metadata"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50162",
+        "message": "Voice messages cannot be edited"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50163",
+        "message": "Cannot delete guild subscription integration"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50164",
+        "message": "New owner is ineligible for server subscription requirement"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50165",
+        "message": "Cannot launch Age-Gated Activity"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50166",
+        "message": "Only discoverable servers can publish a landing page"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50167",
+        "message": "Cannot send soundboard sound when user is server muted, deafened, or suppressed"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50168",
+        "message": "User must be in voice channel to send voice channel effect"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50169",
+        "message": "Cannot update other guild fields when disabling invites."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50170",
+        "message": "Cannot specify channel_id and guild_id"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50171",
+        "message": "This action cannot be performed because at least one tier exists."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50173",
+        "message": "Cannot send voice messages in this channel"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50174",
+        "message": "Not a valid clip"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50178",
+        "message": "The user account must first be verified"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50179",
+        "message": "Only media channel post can have preview"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50182",
+        "message": "Cannot set hide media download option flag for non media channels"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50183",
+        "message": "Only Community Servers can create permanent invite links."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50184",
+        "message": "User is not eligible for sending remix"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50186",
+        "message": "Archive files are not supported: {filename}"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50187",
+        "message": "Unable to validate domain. It may take a few minutes for DNS records to propagate."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50191",
+        "message": "Application is unable to monetize"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50193",
+        "message": "This promotion is invalid."
+    },
+    {
+        "group": "Validation issues",
+        "code": "50194",
+        "message": "INVALID_GIFT_REDEMPTION_INCORRECT_USER (UNKNOWN)"
+    },
+    {
+        "group": "Validation issues",
+        "code": "50600",
+        "message": "You do not have permission to send this sticker"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60001",
+        "message": "This account is already enrolled in two factor authentication"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60002",
+        "message": "This account is not enrolled in two factor authentication"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60003",
+        "message": "Two factor is required for this operation"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60004",
+        "message": "Must be a verified account"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60005",
+        "message": "Invalid two-factor secret"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60006",
+        "message": "Invalid two-factor auth ticket"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60008",
+        "message": "Invalid two-factor code"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60009",
+        "message": "Invalid two-factor session"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60010",
+        "message": "This account is not enrolled in SMS authentication"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60011",
+        "message": "Invalid key"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60012",
+        "message": "SMS Two-factor authentication cannot be enabled on this account"
+    },
+    {
+        "group": "Two-factor authentication",
+        "code": "60015",
+        "message": "Two factor is required for owner/admin in servers that have published server subscription tiers"
+    },
+    {
+        "group": "Phone numbers",
+        "code": "70003",
+        "message": "Unable to send sms message"
+    },
+    {
+        "group": "Phone numbers",
+        "code": "70005",
+        "message": "Please use a valid mobile phone number, not a VoIP or landline number."
+    },
+    {
+        "group": "Phone numbers",
+        "code": "70007",
+        "message": "You need to verify your phone number in order to perform this action."
+    },
+    {
+        "group": "Phone numbers",
+        "code": "70008",
+        "message": "An existing Discord account is already using this number. Please remove it before it can be used with a new account."
+    },
+    {
+        "group": "Phone numbers",
+        "code": "70009",
+        "message": "Your Discord password reset link was sent to your email. Please check your email to reset your password."
+    },
+    {
+        "group": "Relationships",
+        "code": "80000",
+        "message": "Incoming friend requests disabled"
+    },
+    {
+        "group": "Relationships",
+        "code": "80001",
+        "message": "Friend request blocked"
+    },
+    {
+        "group": "Relationships",
+        "code": "80002",
+        "message": "Bots cannot have friends"
+    },
+    {
+        "group": "Relationships",
+        "code": "80003",
+        "message": "Cannot send friend request to self"
+    },
+    {
+        "group": "Relationships",
+        "code": "80004",
+        "message": "No users with DiscordTag exist"
+    },
+    {
+        "group": "Relationships",
+        "code": "80005",
+        "message": "You do not have an incoming friend request from that user"
+    },
+    {
+        "group": "Relationships",
+        "code": "80006",
+        "message": "You need to be friends in order to make this change."
+    },
+    {
+        "group": "Relationships",
+        "code": "80007",
+        "message": "You are already friends with that user."
+    },
+    {
+        "group": "Relationships",
+        "code": "80008",
+        "message": "You must include a discriminator."
+    },
+    {
+        "group": "Blocked actions",
+        "code": "90001",
+        "message": "Reaction was blocked"
+    },
+    {
+        "group": "Blocked actions",
+        "code": "90002",
+        "message": "User cannot use burst reactions"
+    },
+    {
+        "group": "Blocked actions",
+        "code": "90003",
+        "message": "No available burst currency for user"
+    },
+    {
+        "group": "Blocked actions",
+        "code": "90100",
+        "message": "Invalid update for Message Request"
+    },
+    {
+        "group": "Billing",
+        "code": "100001",
+        "message": "UNKNOWN_BILLING_PROFILE (UNKNOWN)"
+    },
+    {
+        "group": "Billing",
+        "code": "100002",
+        "message": "Invalid payment source"
+    },
+    {
+        "group": "Billing",
+        "code": "100003",
+        "message": "Invalid subscription"
+    },
+    {
+        "group": "Billing",
+        "code": "100004",
+        "message": "Already subscribed"
+    },
+    {
+        "group": "Billing",
+        "code": "100005",
+        "message": "Invalid plan"
+    },
+    {
+        "group": "Billing",
+        "code": "100006",
+        "message": "Payment source required"
+    },
+    {
+        "group": "Billing",
+        "code": "100007",
+        "message": "Already cancelled"
+    },
+    {
+        "group": "Billing",
+        "code": "100008",
+        "message": "Invalid payment"
+    },
+    {
+        "group": "Billing",
+        "code": "100009",
+        "message": "Already refunded"
+    },
+    {
+        "group": "Billing",
+        "code": "100010",
+        "message": "Billing address is invalid"
+    },
+    {
+        "group": "Billing",
+        "code": "100011",
+        "message": "Already purchased"
+    },
+    {
+        "group": "Billing",
+        "code": "100015",
+        "message": "Valid dependent SKU entitlement is required"
+    },
+    {
+        "group": "Billing",
+        "code": "100017",
+        "message": "This purchase request is invalid"
+    },
+    {
+        "group": "Billing",
+        "code": "100018",
+        "message": "A payment is required"
+    },
+    {
+        "group": "Billing",
+        "code": "100019",
+        "message": "User is ineligible for trial"
+    },
+    {
+        "group": "Billing",
+        "code": "100021",
+        "message": "Invalid Apple Receipt"
+    },
+    {
+        "group": "Billing",
+        "code": "100023",
+        "message": "INVALID_GIFT_REDEMPTION_SUBSCRIPTION_INCOMPATIBLE (UNKNOWN)"
+    },
+    {
+        "group": "Billing",
+        "code": "100024",
+        "message": "INVALID_GIFT_REDEMPTION_INVOICE_OPEN (UNKNOWN)"
+    },
+    {
+        "group": "Billing",
+        "code": "100026",
+        "message": "The purchase amount is below the minimum charge amount."
+    },
+    {
+        "group": "Billing",
+        "code": "100027",
+        "message": "Invoice amount cannot be negative."
+    },
+    {
+        "group": "Billing",
+        "code": "100029",
+        "message": "Authentication required"
+    },
+    {
+        "group": "Billing",
+        "code": "100034",
+        "message": "Invalid subscription item"
+    },
+    {
+        "group": "Billing",
+        "code": "100035",
+        "message": "This trial subscription cannot be modified"
+    },
+    {
+        "group": "Billing",
+        "code": "100037",
+        "message": "Subscription items are required"
+    },
+    {
+        "group": "Billing",
+        "code": "100038",
+        "message": "Cannot preview this subscription update"
+    },
+    {
+        "group": "Billing",
+        "code": "100040",
+        "message": "Invalid subscription_items"
+    },
+    {
+        "group": "Billing",
+        "code": "100042",
+        "message": "Subscription renewal is in progress"
+    },
+    {
+        "group": "Billing",
+        "code": "100046",
+        "message": "Invalid price tier order"
+    },
+    {
+        "group": "Billing",
+        "code": "100047",
+        "message": "Confirmation required"
+    },
+    {
+        "group": "Billing",
+        "code": "100051",
+        "message": "Invalid currency for payment"
+    },
+    {
+        "group": "Billing",
+        "code": "100052",
+        "message": "Invalid currency for subscription plan"
+    },
+    {
+        "group": "Billing",
+        "code": "100053",
+        "message": "Ineligible for subscription"
+    },
+    {
+        "group": "Billing",
+        "code": "100054",
+        "message": "The card has insufficient funds required to complete the purchase"
+    },
+    {
+        "group": "Billing",
+        "code": "100055",
+        "message": "Pending purchase could not be verified"
+    },
+    {
+        "group": "Billing",
+        "code": "100056",
+        "message": "This client needs to be authorized for purchases. We've sent you an email. Click the link on the email and then retry the purchase."
+    },
+    {
+        "group": "Billing",
+        "code": "100058",
+        "message": "This payment method cannot be used"
+    },
+    {
+        "group": "Billing",
+        "code": "100059",
+        "message": "Open invoice not found"
+    },
+    {
+        "group": "Billing",
+        "code": "100060",
+        "message": "Non refundable payment source"
+    },
+    {
+        "group": "Billing",
+        "code": "100062",
+        "message": "Subscription metadata is invalid"
+    },
+    {
+        "group": "Billing",
+        "code": "100066",
+        "message": "Currency can't be changed without a payment source"
+    },
+    {
+        "group": "Billing",
+        "code": "100069",
+        "message": "Invalid operation"
+    },
+    {
+        "group": "Billing",
+        "code": "100071",
+        "message": "User is not eligible for creating referrals"
+    },
+    {
+        "group": "Billing",
+        "code": "100076",
+        "message": "Error while generating invoice PDF"
+    },
+    {
+        "group": "Billing",
+        "code": "100078",
+        "message": "BILLING_TRIAL_REDEMPTION_DISABLED (UNKNOWN)"
+    },
+    {
+        "group": "Pending resources",
+        "code": "110000",
+        "message": "Index not yet available. Try again later"
+    },
+    {
+        "group": "Pending resources",
+        "code": "110001",
+        "message": "Application not yet available. Try again later"
+    },
+    {
+        "group": "LFG channels",
+        "code": "120000",
+        "message": "LISTING_ALREADY_JOINED (UNKNOWN)"
+    },
+    {
+        "group": "LFG channels",
+        "code": "120001",
+        "message": "LISTING_TOO_MANY_MEMBERS (UNKNOWN)"
+    },
+    {
+        "group": "LFG channels",
+        "code": "120002",
+        "message": "LISTING_JOIN_BLOCKED (UNKNOWN)"
+    },
+    {
+        "group": "API resources",
+        "code": "130000",
+        "message": "API resource is currently overloaded. Try again a little later"
+    },
+    {
+        "group": "Achievements",
+        "code": "140000",
+        "message": "Maximum number of achievements reached (1000)"
+    },
+    {
+        "group": "Applications/requests",
+        "code": "150001",
+        "message": "Server does not pass partner requirements"
+    },
+    {
+        "group": "Applications/requests",
+        "code": "150002",
+        "message": "You must revoke your existing request to join before re-applying"
+    },
+    {
+        "group": "Applications/requests",
+        "code": "150003",
+        "message": "Cannot find a pending application for this user"
+    },
+    {
+        "group": "Applications/requests",
+        "code": "150004",
+        "message": "You already have a pending Partner application"
+    },
+    {
+        "group": "Applications/requests",
+        "code": "150006",
+        "message": "The Stage is already open"
+    },
+    {
+        "group": "Applications/requests",
+        "code": "150009",
+        "message": "This user is already a member, join request is already closed"
+    },
+    {
+        "group": "Applications/requests",
+        "code": "150011",
+        "message": "Server must raise verification level in order to perform this action"
+    },
+    {
+        "group": "Chat limitations",
+        "code": "160002",
+        "message": "Cannot reply without permission to read message history"
+    },
+    {
+        "group": "Chat limitations",
+        "code": "160004",
+        "message": "A thread has already been created for this message"
+    },
+    {
+        "group": "Chat limitations",
+        "code": "160005",
+        "message": "Thread is locked"
+    },
+    {
+        "group": "Chat limitations",
+        "code": "160006",
+        "message": "Maximum number of active threads reached"
+    },
+    {
+        "group": "Chat limitations",
+        "code": "160007",
+        "message": "Maximum number of active announcement threads reached"
+    },
+    {
+        "group": "Guild stickers",
+        "code": "170001",
+        "message": "Invalid JSON for uploaded Lottie file"
+    },
+    {
+        "group": "Guild stickers",
+        "code": "170002",
+        "message": "Uploaded Lotties cannot contain rasterized images such as PNG or JPEG"
+    },
+    {
+        "group": "Guild stickers",
+        "code": "170003",
+        "message": "Sticker maximum framerate exceeded"
+    },
+    {
+        "group": "Guild stickers",
+        "code": "170004",
+        "message": "Sticker frame count exceeds maximum of 1000 frames"
+    },
+    {
+        "group": "Guild stickers",
+        "code": "170005",
+        "message": "Lottie animation maximum dimensions exceeded"
+    },
+    {
+        "group": "Guild stickers",
+        "code": "170006",
+        "message": "Sticker frame rate is either too small or too large"
+    },
+    {
+        "group": "Guild stickers",
+        "code": "170007",
+        "message": "Sticker animation duration exceeds maximum of 5 seconds"
+    },
+    {
+        "group": "Guild stickers",
+        "code": "170008",
+        "message": "POGGERMODE_TEMPORARILY_DISABLED (UNKNOWN)"
+    },
+    {
+        "group": "Guild events",
+        "code": "180000",
+        "message": "Cannot update a finished event"
+    },
+    {
+        "group": "Guild events",
+        "code": "180001",
+        "message": "Exactly one guild_id query parameter is required"
+    },
+    {
+        "group": "Guild events",
+        "code": "180002",
+        "message": "Failed to create stage needed for stage event"
+    },
+    {
+        "group": "Guild events",
+        "code": "180003",
+        "message": "You must join the server to take this action"
+    },
+    {
+        "group": "Guild events",
+        "code": "181000",
+        "message": "We are temporarily not accepting Verified Server Applications while we tidy up things on our end."
+    },
+    {
+        "group": "Application Verification",
+        "code": "190001",
+        "message": "All apps must have a privacy policy."
+    },
+    {
+        "group": "Application Verification",
+        "code": "190002",
+        "message": "All apps must have a Terms of Service."
+    },
+    {
+        "group": "Automatic moderation",
+        "code": "200000",
+        "message": "This can't be posted because it contains content blocked by this community. This may also be viewed by the community owners."
+    },
+    {
+        "group": "Automatic moderation",
+        "code": "200001",
+        "message": "This can't be sent because it contains content blocked by this community. Please revise and try again."
+    },
+    {
+        "group": "Automatic moderation",
+        "code": "200002",
+        "message": "Regex validation service unavailable. Please try again later."
+    },
+    {
+        "group": "Automatic moderation",
+        "code": "200005",
+        "message": "You cannot join this server because your username contains content blocked by this server."
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210000",
+        "message": "Monetization request has not been approved yet"
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210001",
+        "message": "The terms for monetization request have already been acked"
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210002",
+        "message": "Cannot access application"
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210003",
+        "message": "The terms for monetisation have not been accepted"
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210011",
+        "message": "TWO_FA_NOT_ENABLED (UNKNOWN)"
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210019",
+        "message": "Your monetization requirements are in an unexpected state. Please contact support."
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210020",
+        "message": "You are running old code. Please restart your app."
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210021",
+        "message": "Cannot publish a product without a benefit"
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210026",
+        "message": "CREATOR_MONETIZATION_PAYMENT_TEAM_REQUIRED (UNKNOWN)"
+    },
+    {
+        "group": "Guild monetization",
+        "code": "210027",
+        "message": "Must complete setup and verification of payment account"
+    },
+    {
+        "group": "Webhooks",
+        "code": "220001",
+        "message": "Webhooks posted to forum channels must have a thread_name or thread_id"
+    },
+    {
+        "group": "Webhooks",
+        "code": "220002",
+        "message": "Webhooks posted to forum channels cannot have both a thread_name and thread_id"
+    },
+    {
+        "group": "Webhooks",
+        "code": "220003",
+        "message": "Webhooks can only create threads in forum channels"
+    },
+    {
+        "group": "Webhooks",
+        "code": "220004",
+        "message": "Webhook services cannot be used in forum channels"
+    },
+    {
+        "group": "Guild home",
+        "code": "230000",
+        "message": "Items in this channel cannot be featured"
+    },
+    {
+        "group": "Harmful links filter",
+        "code": "240000",
+        "message": "Message blocked by harmful links filter"
+    },
+    {
+        "group": "Drops",
+        "code": "260000",
+        "message": "User is not enrolled in the given drop"
+    },
+    {
+        "group": "Drops",
+        "code": "260001",
+        "message": "User has not completed the given drop"
+    },
+    {
+        "group": "Drops",
+        "code": "260002",
+        "message": "Unable to claim code for the given drop"
+    },
+    {
+        "group": "Drops",
+        "code": "260003",
+        "message": "User has already claimed code for the given drop"
+    },
+    {
+        "group": "External integrations",
+        "code": "270000",
+        "message": "CONSOLE_DEVICE_PASSCODE_UNLOCK_REQUIRED"
+    },
+    {
+        "group": "External integrations",
+        "code": "270001",
+        "message": "CONSOLE_DEVICE_UNAVAILABLE"
+    },
+    {
+        "group": "External integrations",
+        "code": "270002",
+        "message": "CONSOLE_DEVICE_UNVAILABLE_FROM_OTHER_USERS"
+    },
+    {
+        "group": "External integrations",
+        "code": "270003",
+        "message": "CONSOLE_DEVICE_COMMUNICATION_RESTRICTED"
+    },
+    {
+        "group": "External integrations",
+        "code": "270004",
+        "message": "CONSOLE_DEVICE_INVALID_POWER_MODE"
+    },
+    {
+        "group": "External integrations",
+        "code": "270005",
+        "message": "CONSOLE_DEVICE_ACCOUNT_LINK_ERROR"
+    },
+    {
+        "group": "External integrations",
+        "code": "270006",
+        "message": "CONSOLE_DEVICE_MAX_MEMBERS_REACHED"
+    },
+    {
+        "group": "External integrations",
+        "code": "270007",
+        "message": "CONSOLE_DEVICE_BAD_COMMAND"
+    },
+    {
+        "group": "External integrations",
+        "code": "270008",
+        "message": "Application does not meet activity requirements"
+    },
+    {
+        "group": "Providers (two-way linking)",
+        "code": "280000",
+        "message": "This provider does not support two-way linking"
+    },
+    {
+        "group": "Providers (two-way linking)",
+        "code": "280003",
+        "message": "User not authorized to create provider"
+    },
+    {
+        "group": "Family Center",
+        "code": "290000",
+        "message": "User is not eligible for parent tools."
+    },
+    {
+        "group": "Family Center",
+        "code": "290001",
+        "message": "No link currently exists between users"
+    },
+    {
+        "group": "Family Center",
+        "code": "290002",
+        "message": "Too many links exist for one of the requested users"
+    },
+    {
+        "group": "Family Center",
+        "code": "290003",
+        "message": "User link status cannot transition from current state to desired state."
+    },
+    {
+        "group": "Family Center",
+        "code": "290004",
+        "message": "Teens cannot request an activity view for other users in family center"
+    },
+    {
+        "group": "Family Center",
+        "code": "290005",
+        "message": "A link request already exists between the two users"
+    },
+    {
+        "group": "Family Center",
+        "code": "290006",
+        "message": "A linking code has not been generated for this use"
+    },
+    {
+        "group": "Family Center",
+        "code": "290007",
+        "message": "The linking code is invalid or has expired"
+    },
+    {
+        "group": "Clyde AI",
+        "code": "310000",
+        "message": "Clyde consent is required"
+    },
+    {
+        "group": "Clyde AI",
+        "code": "310002",
+        "message": "You are sending too many messages to Clyde. Try again later"
+    },
+    {
+        "group": "Clyde AI",
+        "code": "310003",
+        "message": "This backstory could result in potentially unsafe or harmful responses.  Please modify the backstory and try again."
+    },
+    {
+        "group": "Clyde AI",
+        "code": "310006",
+        "message": "Clyde Profile Not found"
+    },
+    {
+        "group": "User limitations",
+        "code": "340001",
+        "message": "Access to sending messages in guild channels has been limited for the user"
+    },
+    {
+        "group": "User limitations",
+        "code": "340002",
+        "message": "Access to sending DMs has been limited for the user"
+    },
+    {
+        "group": "User limitations",
+        "code": "340003",
+        "message": "Access to sending messages in group DMs has been limited for the user"
+    },
+    {
+        "group": "User limitations",
+        "code": "340007",
+        "message": "Access to sending friend request has been limited for the user"
+    },
+    {
+        "group": "User limitations",
+        "code": "340009",
+        "message": "Access to creating new guilds has been limited for the user"
+    },
+    {
+        "group": "Guild onboarding",
+        "code": "350000",
+        "message": "Cannot enable onboarding, requirements are not met"
+    },
+    {
+        "group": "Guild onboarding",
+        "code": "350001",
+        "message": "Cannot update onboarding while below requirements"
+    },
+    {
+        "group": "Summaries AI",
+        "code": "360000",
+        "message": "Server is ineligible for summaries."
+    },
+    {
+        "group": "Summaries AI",
+        "code": "360001",
+        "message": "Channel is ineligible for summaries."
+    },
+    {
+        "group": "Guest invites",
+        "code": "380000",
+        "message": "Cannot join because you are on a timeout"
+    },
+    {
+        "group": "Emoji inventory",
+        "code": "390001",
+        "message": "Pack not found"
+    },
+    {
+        "group": "Emoji inventory",
+        "code": "390002",
+        "message": "Must provide a pack id"
+    },
+    {
+        "group": "Emoji inventory",
+        "code": "390003",
+        "message": "Inventory not enabled"
+    },
+    {
+        "group": "Emoji inventory",
+        "code": "390004",
+        "message": "Inventory settings not enabled"
+    },
+    {
+        "group": "Emoji inventory",
+        "code": "390010",
+        "message": "Inventory pack limit reached"
+    },
+    {
+        "group": "Guild limitations",
+        "code": "400001",
+        "message": "GUILD_FILE_UPLOAD_RATE_LIMITED_ACCESS (UNKNOWN)"
+    },
+    {
+        "group": "Guild limitations",
+        "code": "400002",
+        "message": "GUILD_JOIN_INVITE_LIMITED_ACCESS (UNKNOWN)"
+    },
+    {
+        "group": "Guild limitations",
+        "code": "400003",
+        "message": "GUILD_GO_LIVE_LIMITED_ACCESS (UNKNOWN)"
+    },
+    {
+        "group": "Partner Promotions",
+        "code": "420002",
+        "message": "PARTNER_PROMOTIONS_USER_CLAIMED_PROMOTION (UNKNOWN)"
+    },
+    {
+        "group": "Partner Promotions",
+        "code": "420003",
+        "message": "PARTNER_PROMOTIONS_MAX_CLAIMS (UNKNOWN)"
+    },
+    {
+        "group": "Partner Promotions",
+        "code": "420004",
+        "message": "PARTNER_PROMOTIONS_GIFT_CLAIMED (UNKNOWN)"
+    },
+    {
+        "group": "Partner Promotions",
+        "code": "420005",
+        "message": "Previous purchase error."
+    },
+    {
+        "group": "Partner Promotions",
+        "code": "420006",
+        "message": "PARTNER_PROMOTIONS_NEW_SUBSCRIPTION_REQUIRED (UNKNOWN)"
+    },
+    {
+        "group": "Partner Promotions",
+        "code": "420007",
+        "message": "PARTNER_PROMOTIONS_UNKNOWN_GIFT (UNKNOWN)"
+    },
+    {
+        "group": "Polls",
+        "code": "520002",
+        "message": "Cannot create a poll in this type of channel"
+    }
+]

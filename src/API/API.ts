@@ -19,19 +19,19 @@ class API {
     public constructor(ddanwm: DDANWM) {
         this.ddanwm = ddanwm;
 
-        this.RouteDirectory = this.ddanwm.convertWindowsPath(join(dirname(fileURLToPath(import.meta.url)), "./routes"))
+        this.RouteDirectory = this.ddanwm.convertWindowsPath(join(dirname(fileURLToPath(import.meta.url)), "./routes"));
 
         this.app = express();
 
         this.app.use(express.json({
             limit: "50mb"
-        }))
+        }));
 
         this.app.use(express.urlencoded({
             limit: "50mb",
             extended: true,
             parameterLimit: 25
-        }))
+        }));
 
         this.defaultMiddleware = [Authentication(this.ddanwm, {
             type: "required",
@@ -49,7 +49,7 @@ class API {
             if (this.ddanwm.options.debug?.api?.responses) {
                 req.on("end", () => {
                     this.ddanwm.log("debug", `API response: ${req.method} ${req.url} - ${res.statusCode}`);
-                })
+                });
             }
 
             if (this.ddanwm.options.debug?.api?.requests) this.ddanwm.log("debug", `API request: ${req.method} ${req.url}`);
@@ -59,52 +59,55 @@ class API {
     }
 
     public async start() {
-        const routes = await this.ddanwm.loadFiles<"api">(this.RouteDirectory)
-
+        const routes = await this.ddanwm.loadFiles<"api">(this.RouteDirectory);
         const defaultVersions = routes.filter((route) => route.version === this?.ddanwm?.options?.defaultApiVersion);
 
-        for (const defaultVersion of defaultVersions) {
-            this.ddanwm.log("debug", `Registering route "${defaultVersion.versionlessRoute}" (Default API Version)`);
+        this.app.all("*", async (req, res) => {
+            const foundPath = routes.find((route) => {
+                const escapedPath = route.path.replaceAll(/[$()*+./?[\\\]^{|}-]/g, "\\$&");
+                const regexPath = escapedPath.replaceAll(/:[\dA-Za-z]+/g, "[a-zA-Z0-9]+");
+                const regex = new RegExp(`^${regexPath}$`);
 
-            // darkerink: WARNING (this goes for the routes for loop as well):
-            // Discord themselves first checks the method, then runs their header checks. So on discord if you don't provide a authorization header
-            // it will return the 405 method not allowed error, not the 401 unauthorised error. Though for this we do the opposite, we first check the header
-            // If someone wants to fix this, feel free to do so, but I don't see a reason to do so.
-            this.app.all(defaultVersion.versionlessRoute, defaultVersion.default.middleware, (req: Request, res: Response, next: NextFunction) => {
-                if (req.method !== defaultVersion.route.method) {
-                    const methodNotAllowed = Errors.methodNotAllowed();
+                return regex.test(req.path) && req.method === route.route.method;
+            }) ?? defaultVersions.find((route) => {
+                const escapedPath = route.versionlessRoute.replaceAll(/[$()*+./?[\\\]^{|}-]/g, "\\$&");
+                const regexPath = escapedPath.replaceAll(/:[\dA-Za-z]+/g, "[a-zA-Z0-9]+");
+                const regex = new RegExp(`^${regexPath}$`);
 
-                    res.status(methodNotAllowed.code).send(methodNotAllowed.response);
+                const fixedPath = req.path.replace(/^\/api/, "");
 
-                    return;
-                }
-
-                defaultVersion.route.handler(req, res, next); // darkerink: In theory next shouldn't ever be used but in case I think of a reason to use it I'll leave it here
-            })
-        }
-
-        for (const route of routes) {
-            this.ddanwm.log("debug", `Registering route "${route.path}"`);
-
-            this.app.all(route.path, route.default.middleware, (req: Request, res: Response, next: NextFunction) => {
-                if (req.method !== route.route.method) {
-                    const methodNotAllowed = Errors.methodNotAllowed();
-
-                    res.status(methodNotAllowed.code).send(methodNotAllowed.response);
-
-                    return;
-                }
-
-                route.route.handler(req, res, next);
+                return regex.test(fixedPath) && req.method === route.route.method;
             });
-        }
 
-        this.app.all("*", (req, res) => {
-            const notfound = Errors.notFound();
+            if (!foundPath) {
+                const notfound = Errors.notFound();
 
-            if (!this.ddanwm.options.noWarnings) this.ddanwm.log("warn", "Possible missing endpoint, Please create a github issue if this is an actual endpoint bots can access, output:", req.method, req.url, JSON.stringify(req.body, null, 4), JSON.stringify(req.headers, null, 4));
+                if (!this.ddanwm.options.noWarnings) this.ddanwm.log("warn", "Possible missing endpoint, Please create a github issue if this is an actual endpoint bots can access, output:", req.method, req.url, JSON.stringify(req.body, null, 4), JSON.stringify(req.headers, null, 4));
 
-            res.status(notfound.code).send(notfound.response);
+                res.status(notfound.code).send(notfound.response);
+
+                return;
+            }
+
+            let idx = 0;
+
+            async function next() {
+                if (!foundPath) return;
+
+                if (idx < foundPath.default.middleware.length) {
+                    const middleware = foundPath.default.middleware[idx++];
+
+                    if (!middleware) {
+                        throw new Error("Out of bounds middleware, this should never happen 🤔")
+                    }
+
+                    await middleware(req, res, next);
+                } else if (!res.headersSent) {
+                    foundPath.route.handler(req, res);
+                }
+            }
+
+           return next()
         });
 
         this.app.listen(this.ddanwm.options.api.port, this.ddanwm.options.api.host, () => {

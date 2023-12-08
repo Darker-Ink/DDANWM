@@ -31,5 +31,5 @@
 		"useDefineForClassFields": true,
 		"noErrorTruncation": true
 	},
-	"exclude": ["./tests", "./dist", "./node_modules"]
+	"exclude": ["./tests", "./dist", "./node_modules"],
 }

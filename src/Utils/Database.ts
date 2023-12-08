@@ -4,9 +4,12 @@ import { join } from "node:path";
 import process from "node:process";
 import { deflate, inflate } from "pako";
 import type { Column, ColumnsMap, DatabaseOptions } from "../Types/Misc/Database.type";
+import { isBigint } from "./PayloadValidator.js";
 
-
-class Database<T extends readonly { columns: string[], name: string }[]> {
+/**
+ * @description A fake database which mocks a CQL database (scylla, cassandra, etc) with a small amount of persistence
+ */
+class Database<T extends readonly { columns: string[], name: string; }[]> {
     private options: DatabaseOptions;
 
     /**
@@ -34,7 +37,7 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
     public async save() {
         if (!this.options.persistent) throw new Error("Cannot save a non-persistent database");
 
-        const data = this.options.saveType === "binary" ? this.binarify() : JSON.stringify(Object.entries(this.database));
+        const data = this.options.saveType === "binary" ? this.binarify() : JSON.stringify(this.stringifyReadyJson(this.database));
 
         const path = join(process.cwd(), this.options.path ?? "./", `database.${this.options.saveType === "binary" ? "dmc" : "json"}`);
 
@@ -53,7 +56,7 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
         if (this.options.saveType === "binary") {
             this.database = this.debinarify(data as unknown as string);
         } else {
-            this.database = Object.fromEntries(JSON.parse(data.toString()));
+            this.database = this.parseReadyJson(data.toString());
         }
 
         return true;
@@ -66,27 +69,44 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
     private binarify() {
         if (this.options.saveType !== "binary") throw new Error("Cannot binarify a non-binary database");
 
-        const data = Object.entries(this.database).map(([key, value]) => {
-            const data2 = [...value.rows.entries()].map(([key2, value2]) => {
-                const data3: Record<string, any> = {};
+        return deflate(JSON.stringify(this.stringifyReadyJson(this.database)));
+    }
 
-                for (const column of value.columns) {
-                    data3[column.name] = value2[value.columns.findIndex(column2 => column2.name === column.name)];
-                }
+    private stringifyReadyJson(data: any): any {
+        if (data === null || data === undefined || data instanceof Date) return data;
 
-                return [key2, data3];
-            });
+        if (Array.isArray(data)) {
+            return data.map(item => this.stringifyReadyJson(item));
+        }
 
-            const data4: Record<string, any> = {};
+        if (data instanceof Map) {
+            // we return maps in this format:
+            // { map: true, data: [[key, value], [key, value]] }
 
-            for (const column of value.columns) {
-                data4[column.name] = column;
+            const newData: Record<string, any> = {};
+
+            newData.map = true;
+
+            newData.data = [...data.entries()];
+
+            return this.stringifyReadyJson(newData);
+        }
+
+        if (typeof data === "object") {
+            const newData: Record<string, any> = {};
+
+            for (const [key, value] of Object.entries(data)) {
+                newData[key] = this.stringifyReadyJson(value);
             }
 
-            return [key, [data4, data2]];
-        });
+            return newData;
+        }
 
-        return deflate(JSON.stringify(data));
+        if (typeof data === "bigint") {
+            return `${data}n`;
+        }
+
+        return data;
     }
 
     /**
@@ -99,26 +119,53 @@ class Database<T extends readonly { columns: string[], name: string }[]> {
 
         const string = inflate(Buffer.from(data, "base64"), { to: "string" });
 
-        const parsedData = JSON.parse(string);
-        const newData: Record<string, any> = {};
+        return this.parseReadyJson(string);
+    }
 
-        for (const [key, value] of parsedData) {
-            const columns: Column[] = [];
+    private parseBigint(data: unknown): any {
+        if (Array.isArray(data)) {
+            return data.map(item => this.parseBigint(item));
+        }
 
-            for (const data of Object.entries(value[0])) {
-                columns.push(data[1] as Column);
+        if (data === null || data === undefined || data instanceof Date) {
+            return data;
+        }
 
+        if (typeof data === "object") {
+            const newData: Record<string, any> = {};
+
+            for (const [key, value] of Object.entries(data)) {
+                newData[key] = this.parseBigint(value);
             }
 
-            const rows = new Map();
+            return newData;
+        }
 
-            for (const [key2, value2] of value[1]) {
-                rows.set(key2, Object.values(value2));
-            }
+        if (typeof data === "string" && isBigint(data)) {
+            return BigInt(data.slice(0, -1));
+        }
 
+        return data;
+    }
+
+    private parseReadyJson(data: string): any {
+        const parsed = JSON.parse(data) as Record<string, {
+            columns: Column[];
+            rows: {
+                data: [string, any][];
+                map: true;
+            };
+        }>;
+
+        const newData: Record<string, {
+            columns: Column[];
+            rows: Map<string, any>;
+        }> = {};
+
+        for (const [key, value] of Object.entries(parsed)) {
             newData[key] = {
-                columns,
-                rows
+                columns: value.columns,
+                rows: new Map(value.rows.data.map((items) => [this.parseBigint(items[0]), this.parseBigint(items[1])]))
             };
         }
 

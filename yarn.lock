@@ -2243,7 +2243,7 @@ __metadata:
     chalk: ^5.3.0
     cors: ^2.8.5
     discord-api-types: ^0.37.62
-    discord-bitflag: ^1.0.0
+    discord-bitflag: ^1.0.1
     discord.js: ^14.13.0
     eslint: ^8.52.0
     eslint-config-neon: ^0.1.57
@@ -2428,12 +2428,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-bitflag@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "discord-bitflag@npm:1.0.0"
+"discord-bitflag@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "discord-bitflag@npm:1.0.1"
   dependencies:
     bitflag-js: ^1.0.0
-  checksum: eb1cee8cd0b4f441c63eb05ee2060a713f0aa9d44de99531de10301a79b76c6bb2fd8ae7f7e8a5d9b74d074d01dba24f46ec644e015402bbd0f88d1027fcc461
+  checksum: fc8be8575218d39b9926fcd578f37417f13b21a7c0360a5ba5a21587dafa8dc5cd01ba7ab356b8cc99eadf241ea91fbb67b405a59c2b88ac0e65d9c50399fc55
   languageName: node
   linkType: hard
 

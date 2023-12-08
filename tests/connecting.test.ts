@@ -35,7 +35,6 @@ const start = async () => {
         owner: user
     });
 
-
     mocker.log("info", `Created Bot (${bot.username} - ${bot.id}), token: ${bot.tokens[0]}, owner: ${bot.owner.username}#${bot.owner.discriminator} - ${bot.owner.id}`);
 
     const client = new Client({
@@ -45,8 +44,10 @@ const start = async () => {
         }
     });
 
-    client.on("ready", () => {
+    client.on("ready", async () => {
         mocker.log("info", `Using Discord.js ${client.user?.tag} has connected to the mocker!`);
+
+        await client.user?.setUsername(bot.username);
     });
 
     client.login(bot.tokens[0]);
